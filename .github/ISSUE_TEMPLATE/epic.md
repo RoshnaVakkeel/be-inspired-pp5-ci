@@ -1,6 +1,6 @@
 ---
 name: Epic
-about: This the template for Epic
+about: This is the template for Epics
 title: 'Epic: <TITLE>'
 labels: ''
 assignees: ''
