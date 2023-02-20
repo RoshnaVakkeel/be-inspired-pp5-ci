@@ -9,5 +9,18 @@
     font-size: x-large;
     text-transform: uppercase;
     font-weight: 700;
-    
+    padding-left: 10px;
+}
+
+.NavLink {
+    padding: 10px;
+    color: black;
+}
+
+.Active {
+    color: blue;
+}
+
+.Active i {
+    color: blue;
 }

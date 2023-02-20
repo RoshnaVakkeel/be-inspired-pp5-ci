@@ -2,3 +2,40 @@
     font-family: "Alegreya Sans", sans-serif;
     min-height: 100vh;
 }
+
+ 
+  .Main {
+    padding-top: 100px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Style app links */
+  a {
+    color: black;
+    transition: color ease-in-out 0.3s;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: purple;
+  }
+  
+  a:hover i {
+    color: purple;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  i {
+    color: black;
+    font-size: 1.5rem;
+    padding: 5px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+  }
