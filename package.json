@@ -17,6 +17,9 @@
     "react-scripts": "^4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "engines": {
+    "node": "16.18.1"
+  },
   "scripts": {
     "heroku-prebuild": "npm install -g serve",
     "start": "react-scripts start",
