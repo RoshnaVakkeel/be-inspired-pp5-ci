@@ -1,75 +1,94 @@
-#[Be Inspired](be-inspired)
+# Welcome to **[Be Inspired (PP5 CI)]()**
+
+## PERSPECTIVE
+To be inspired and to spread positivity around..
+
+## Links to Repositories and Live Sites
+
+[Live site for the Front End](https://)
+
+[Live site for the Back End](https://)
+
+[Back End Respository](https://github.com/RoshnaVakkeel/be-inspired-drf-api)
+
+## [Contents](#contents)
+- [User Experience (UX)](#user-experience-ux)
+	- [Site Goals](#site-goals)
+	- [User Personas](#user-personas)
+	- [Scope](#scope)
+- [Agile Methodology](<#agile-methodology>)
+    - [Epics and User Stories](<#epics-and-user-stories>)
+        - [Website UI](<#website-ui>)
+        - [Authentication](<#authentication>)
+		- [Main page Layout](<#main-page-layout>)
+		- [Post Management](<#post-management>)
+        - [Recommendation Management](<#recommendation-management>)
+        - [Comment Management](<#comment-management>)
+        - [Likes Management](<#likes-management>)
+        - [Profile Management](<#profile-management>)
+    - [Acceptance Criteria](<#acceptance-criteria>)
+	- [Tasks](<#tasks>)
+	- [User Story Management](<#user-story-management>)
+        - [Sprints](#sprints)
+- [Design](<#design>)
+	- [Colours](<#colours>)
+	- [Typography](<#typography>)
+	- [Imagery](<#imagery>)
+	- [Wireframes](<#wireframes>)
+    - [Database Schema](<#database-schema>)
+- [Features](<#features>)
+
+- [Technologies](<#technologies>)
+	- [Languages Used](<#languages-used>)
+	- [Frameworks, Libraries and Programs](<#frameworks-libraries-and-programs>)
+- [Production](#production)
+	- [React](<#react>)
+- [Testing](<#testing>)
+	- [User Story Testing](<#user-story-testing>)
+	- [Testing Technologies](<#testing-technologies>)
+		- [Manual Testing](<#manual-testing>)
+			- [Validation](<#validation>)
+- [Issues and Fixes](<#issues-and-fixes>)
+- [Deployment](<#deployment>)
+	- [Heroku](<#heroku>)
+- [Credits and Resources](<#credits-and-resources>)
+	- [Code](<#code>)
+	- [Learning Resources](<#learning-resources>)
+	- [Content](<#content>)
+	- [Media](<#media>)
+- [Acknowledgements](<#acknowledgements>)
 
 
 
 
-# Getting Started with Create React App
+## Agile Methodology
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Acceptance Criteria
+For all the User Stories, Acceptance Criteria were enlisted. The purpose of this was to provide a reference point for the developmental steps. I made sure to cross-check that all the required steps intended was implemented. It also helped with Testing to make sure that all the necessary aspects and features were covered. The acceptance criteria is described on the column next to the user stories (column H) [here]().
 
-## Available Scripts
+### Tasks
+The tasks for the website development process was closely followed as mentioned in CI's Advanced Frontend React module "I Moments" walkthrough project. The task is generally the developers step towards preparing the app.
+The tasks that I have followed during the development phase were carried out in this order.
 
-In the project directory, you can run:
+**Before Project Inception**
 
-### `npm start`
+- Design Entity Relationship Diagram 
+- Set up and create  Back End API. For this backend was built using the Django Rest API framework. All information a=can be found in [BE INSPIRED - DRF API](https://github.com/RoshnaVakkeel/be-inspired-drf-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Create Frontend Repository in GitHub
+- Create Project, Epics, User Stories and prepare Kanban Board
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Creation of Project in GitPod**
 
-### `npm test`
+- Set up ReactJS project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### User Story Management
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Sprints
+The project was divided mainly into three main sprints spanning a week.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Sprint 1 was to set up Backend be-inspired-drf-api.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Sprint 2 was to set up Frontend ReactJS app
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
