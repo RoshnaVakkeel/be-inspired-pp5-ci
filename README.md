@@ -92,3 +92,31 @@ The project was divided mainly into three main sprints spanning a week.
 
 - Sprint 2 was to set up Frontend ReactJS app
 
+
+
+
+## Technologies
+
+### Languages Used
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [React JSX](https://reactjs.org/docs/introducing-jsx.html)
+
+### Frameworks, Libraries and Programs
+
+**Frameworks and Libraries **
+- [React Bootstrap4](https://react-bootstrap-v4.netlify.app/) - for styling the site and site responsiveness across various devices
+- [ReactJS](https://reactjs.org/) - to build the functionality of the site
+- [Font Awesome](https://fontawesome.com/) - to add various icons to the site
+
+
+## Production
+
+Installations:
+- React library - using the command `npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+For the React project set up
+- react-bootstrap - using the command `npm install react-bootstrap@1.6.3 bootstrap@4.6.0`
+This is used to render the layout and styling of the website. The library makes it easy to create and use standard interface elements that are responsive.
+- react-router-dom - using the command `npm install react-router-dom@5.3.0`
+ This library makes the site navigation easier without the need to refresh the page. In social media sites ith mutiple components, it provides a quick and responsive user experience.
