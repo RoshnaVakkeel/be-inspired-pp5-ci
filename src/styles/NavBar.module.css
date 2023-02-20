@@ -1,0 +1,13 @@
+.NavBarBrand {
+    font-size: xx-large;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.NavItems {
+    font-size: large;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+}
