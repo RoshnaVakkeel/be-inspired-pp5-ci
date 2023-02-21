@@ -1,0 +1,32 @@
+.Container {
+  background-color: rgba(255, 219, 18, 0.568);
+  padding: 20px;
+  margin: 50px auto;
+  width: 50%;
+  border-radius: 20px;
+  box-shadow: rgba(177, 86, 11, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+h2 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #d8412d;
+}
+
+p {
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .Container {
+    width: 80%;
+  }
+}
