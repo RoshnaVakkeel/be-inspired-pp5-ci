@@ -1,0 +1,35 @@
+.Button {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
+    padding: 4px 10px;
+    margin: auto;
+    background-color: #df6000;
+  }
+  
+  .Button:hover {
+    opacity: 0.8;
+    border-color: transparent;
+    cursor: pointer;
+    background-color: #df6000 !important;
+  }
+  
+  .Button:hover:active {
+    background-color: #df6000 !important;
+  }
+  
+  .Button:active {
+    background-color: #df6000 !important;
+  }
+  
+  .Button:focus {
+    background-color: #df6000;
+  }
+  
+  .Wide {
+    padding: 10px 40px;
+    width: 100%;
+  }
+  

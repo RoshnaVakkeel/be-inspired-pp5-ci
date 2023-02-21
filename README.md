@@ -5,9 +5,9 @@ To be inspired and to spread positivity around..
 
 ## Links to Repositories and Live Sites
 
-[Live site for the Front End](https://)
+[Live site for the Front End](https://be-inspired-pp5-ci.herokuapp.com/)
 
-[Live site for the Back End](https://)
+[Live site for the Back End](https://be-inspired-drf-api.herokuapp.com/)
 
 [Back End Respository](https://github.com/RoshnaVakkeel/be-inspired-drf-api)
 
