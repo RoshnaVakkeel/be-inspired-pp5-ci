@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import { Link, useHistory } from "react-router-dom";
+
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from 'react-bootstrap/Alert';
+
 import styles from "../../styles/SignInForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import axios from 'axios';
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 /**
@@ -15,41 +19,37 @@ import axios from 'axios';
 * To create variables, data handling and error handling code
 */
 function SignInForm() {
-
+    const setCurrentUser = useSetCurrentUser();
+  
     const [signInData, setSignInData] = useState({
-        username: "",
-        password: "",
+      username: "",
+      password: "",
     });
     const { username, password } = signInData;
+  
+    const [errors, setErrors] = useState({});
+  
     const history = useHistory();
 
-    const [errors, setErrors] = useState({});
-
-    /**
-     * onChange event handler
-     */
-    const handleChange = (event) => {
-        setSignInData({
-            ...signInData,
-            [event.target.name]: event.target.value,  // Converts the entered data into Key:Value pairs
-        });
-    };
-
-    /**
-   * Provides data to API
-   * Redirects the user to Home page
-   * Displays Error messages upon invalid data inputs
-   */
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            await axios.post("/dj-rest-auth/login/", signInData);
-            history.push("/");
-        } catch (err) {
-            setErrors(err.response?.data);
-        }
+      event.preventDefault();
+      try {
+        const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+        setCurrentUser(data.user);
+        console.log(signInData);
+        history.push("/");
+      } catch (err) {
+        setErrors(err.response?.data);
+      }
     };
-
+  
+    const handleChange = (event) => {
+      setSignInData({
+        ...signInData,
+        [event.target.name]: event.target.value,
+      });
+    };
+  
     return (
         <Container className={styles.Container}>
             <h2>Sign In</h2>
