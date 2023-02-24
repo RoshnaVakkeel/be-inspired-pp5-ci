@@ -15,7 +15,7 @@ export const CurrentUserProvider = ({ children }) => {
 
   const handleMount = async () => {
     try {
-      const { data } = await axiosRes.get("https://3000-roshnavakke-beinspiredp-67p46452wii.ws-eu87.gitpod.io/");
+      const { data } = await axiosRes.get("https://be-inspired-drf-api.herokuapp.com/");
       setCurrentUser(data);
     } catch (err) {
       console.log(err);
