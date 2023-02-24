@@ -11,6 +11,7 @@ import axios from 'axios';
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
+import useClickOutsideToggle from '../hook/useClickOutsideToggle';
 
 
 /**
@@ -20,6 +21,8 @@ import Avatar from './Avatar';
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -48,25 +51,33 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa fa-star" aria-hidden="true"></i>Recommendation
+        <i className="fa fa-star" aria-hidden="true"></i>
+        Recommendation
       </NavLink>
       <NavLink
         to="/feed"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa fa-rss-square" aria-hidden="true"></i>Feed
+        <i className="fa fa-rss-square" aria-hidden="true"></i>
+        Feed
       </NavLink>
 
-      <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+      <NavLink to="/"
+        className={styles.NavLink}
+        onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>
+        Sign out
       </NavLink>
 
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={33} />
+        <Avatar src={currentUser?.profile_image}
+          text="Profile"
+          height={33}
+        />
       </NavLink>
     </>
   );
@@ -74,24 +85,32 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/signin"
-      >
-        <i className="fas fa-sign-in-alt"></i>Sign in
-      </NavLink>
-      <NavLink
         to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign up
+        <i className="fas fa-user-plus"></i>
+        Sign up
       </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
+        <i className="fas fa-sign-in-alt"></i>
+        Sign in
+      </NavLink>
+
     </>
   );
 
   return (
-    <Navbar bg="warning" className="shadow p-3 mb-2 rounded" expand="md" fixed="top">
+    <Navbar
+      expanded={expanded}
+      bg="warning"
+      className="shadow p-3 mb-2 rounded"
+      expand="md"
+      fixed="top">
       <Container className="p-2">
         <NavLink to="/">
           <Navbar.Brand className={styles.NavBarBrand}>
@@ -99,10 +118,20 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className={styles.NavItems}>
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={styles.NavItems}>
           <Nav className="ml-auto text-left">
-            <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/" >
+            <NavLink
+              exact
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/" >
               <i className="fa fa-home" aria-hidden="true"></i>
               Home
             </NavLink>
