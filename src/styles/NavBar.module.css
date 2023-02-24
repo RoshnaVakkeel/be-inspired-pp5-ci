@@ -1,3 +1,9 @@
+.NavBar {
+    background-color: #ffb449;
+    border: 1px solid #dadadf;
+  }
+  
+
 .NavBarBrand {
     font-size: xx-large;
     font-style: italic;

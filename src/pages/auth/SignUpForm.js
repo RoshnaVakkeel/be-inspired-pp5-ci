@@ -21,9 +21,10 @@ const SignUpForm = () => {
     password2: "",
   });
   const { username, password1, password2 } = signUpData;
-  const history = useHistory();
 
-  const [errors, setErrors] = useState({});
+  const history = useHistory(); // to link to next page
+
+  const [errors, setErrors] = useState({}); // to store all the errors
 
   /**
    * onChange event handler
@@ -114,7 +115,9 @@ const SignUpForm = () => {
             {message}
           </Alert>
         ))}
+
       </Form>
+      
       <div>
         <p>
           Already have an account?
