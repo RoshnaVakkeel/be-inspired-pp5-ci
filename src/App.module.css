@@ -7,6 +7,12 @@
   padding-top: 100px;
 }
 
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .Content {
   background-color: #ffffff;
   padding: 10px;
@@ -44,6 +50,11 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
 }
 
 /* scrollbar */
