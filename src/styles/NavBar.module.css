@@ -9,10 +9,11 @@
     font-style: italic;
     text-transform: uppercase;
     font-weight: 700;
+    margin-left: -30px;
 }
 
 .NavItems {
-    font-size: x-large;
+    font-size: medium;
     text-transform: uppercase;
     font-weight: 700;
     padding-left: 10px;
@@ -29,4 +30,8 @@
 
 .Active i {
     color: blue;
+}
+
+i {
+
 }
