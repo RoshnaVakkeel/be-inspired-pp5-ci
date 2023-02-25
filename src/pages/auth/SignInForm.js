@@ -34,9 +34,11 @@ function SignInForm() {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
+        console.log(await axios.post("/dj-rest-auth/login/", signInData))
+        
         const { data } = await axios.post("/dj-rest-auth/login/", signInData);
         setCurrentUser(data.user);
-        console.log(signInData);
+        console.log(data);
         history.push("/");
       } catch (err) {
         setErrors(err.response?.data);
