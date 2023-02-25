@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /*
-  To toggle the hamburger menu without specially clicking on it
+  To toggle the burger menu without specially clicking on it
 */
 const useClickOutsideToggle = () => {
     const [expanded, setExpanded] = useState(false);

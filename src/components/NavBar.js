@@ -63,6 +63,15 @@ const NavBar = () => {
         Feed
       </NavLink>
 
+      <NavLink
+        to="/feed"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i className="fa fa-heart" aria-hidden="true"></i>
+        Liked
+      </NavLink>
+
       <NavLink to="/"
         className={styles.NavLink}
         onClick={handleSignOut}>
