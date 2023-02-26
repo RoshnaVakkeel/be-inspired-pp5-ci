@@ -1,31 +1,42 @@
-import React, { useState } from "react";
-
+import React, { useRef, useState } from "react";
+import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import { Image } from "react-bootstrap";
+import Alert from 'react-bootstrap/Alert';
+import Image from "react-bootstrap/Image";
 
-import Upload from "../../assets/upload.png";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
+
 import Asset from "../../components/Asset";
-
-import styles from "../../styles/PostCreateEditForm.module.css";
+import Upload from "../../assets/upload.png";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import createFormStyles from "../../styles/PostCreateForm.module.css";
 
 
-function PostCreateForm() {
+/**
+ * Form to create posts
+ */
+const PostCreateForm = () => {
 
-
+    const [errors, setErrors] = useState({});
 
     const [postData, setPostData] = useState({
         title: "",
-        content: "",
+        category: "",
+        description: "",
         image: "",
     });
-    const { title, content, image } = postData;
 
+    const { title, category, description, image } = postData;
+
+    const imageInput = useRef(null);
+    const history = useHistory();
+
+    /**
+     * Populate the postData strings
+     */
     const handleChange = (event) => {
         setPostData({
             ...postData,
@@ -33,6 +44,9 @@ function PostCreateForm() {
         });
     };
 
+    /**
+     * Change uploaded image and remove uploaded image by revoke
+     */
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
@@ -43,90 +57,155 @@ function PostCreateForm() {
         }
     };
 
-    const textFields = (
-        <div className="text-center">
-            <Form.Group>
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Content</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    rows={6}
-                    name="content"
-                    value={content}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+    /**
+     * submits data to be-inspired-drf-api
+     */
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
 
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => { }}
-            >
-                cancel
-            </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-                create
-            </Button>
-        </div>
-    );
+        formData.append("title", title);
+        formData.append("category", category);
+        formData.append("description", description);
+        formData.append("image", imageInput.current.files[0]);
+
+        try {
+            const { data } = await axiosReq.post("/posts/", formData);
+            history.push(`/posts/${data.id}`);
+        } catch (err) {
+            //   console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
+            }
+        }
+    };
 
     return (
-        <Form>
-            <Row>
-                <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-                    <Container
-                        className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-                    >
-                                    <Form.Group className="text-center">
-              {image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <Asset
-                    src={Upload}
-                    message="Click or tap to upload an image"
-                  />
-                </Form.Label>
-              )}
+        <Container >
+            <h3 className={`${createFormStyles.Title} mt-5`}>
+                Add a post about your inspiration here!
+            </h3>
+            <strong>
 
-                            <Form.File
-                                id="image-upload"
-                                accept="image/*"
-                                onChange={handleChangeImage}
+            </strong>
+            <Form onSubmit={handleSubmit} className={createFormStyles.Container}>
+                <Form.Group>
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="title"
+                        placeholder="Enter a title"
+                        aria-label="title"
+                        value={title}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.title?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Which category defines it the best?</Form.Label>
+                    <Form.Control
+                        as="select"
+                        defaultValue="Choose"
+                        aria-label="category"
+                        placeholder="Make a selection"
+                        name="category"
+                        onChange={handleChange}
+                    >
+                        <option value="Select a category">Select a category</option>
+                        <option value="Books">Books</option>
+                        <option value="Music">Music</option>
+                        <option value="Person">Person</option>
+                        <option value="Place">Place</option>
+                        <option value="Art">Art</option>
+                        <option value="Event">Event</option>
+                        <option value="Stories">Stories</option>
+                        <option value="Movies">Movies</option>
+                    </Form.Control>
+                </Form.Group>
+                {errors.category?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label>Decribe your inspiration</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={6}
+                        name="description"
+                        aria-label="description"
+                        placeholder="Describe in a few words about the inspiration you get and how it impacted your life.."
+                        value={description}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.description?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group className="text-center">
+                    {image ? (
+                        <>
+                            <figure>
+                                <Image className={appStyles.Image} 
+                                src={image} rounded />
+                            </figure>
+                            <div>
+                                <Form.Label
+                                    className={`${btnStyles.Button} btn`}
+                                    htmlFor="image-upload"
+                                >
+                                    Update image
+                                </Form.Label>
+                            </div>
+                        </>
+                    ) : (
+                        <Form.Label htmlFor="image-upload">
+                            <Asset
+                                className={createFormStyles.Asset}
+                                src={Upload}
+                                message="Click here to upload an image"
                             />
+                        </Form.Label>
+                    )}
 
-                        </Form.Group>
-                        <div className="d-md-none">{textFields}</div>
-                    </Container>
-                </Col>
-                <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={appStyles.Content}>{textFields}</Container>
-                </Col>
-            </Row>
-        </Form>
+                    <Form.File
+                        id="image-upload"
+                        accept="image/*"
+                        onChange={handleChangeImage}
+                        ref={imageInput}
+                    />
+                </Form.Group>
+                {errors?.image?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Button className={`${btnStyles.Button} ml-3`}
+                    type="submit">
+                    Submit
+                </Button>
+                <Button
+                    onClick={() => history.goBack()}
+                    className={`${btnStyles.Button} ml-3`}
+                    type="submit"
+                >
+                    Cancel
+                </Button>
+
+            </Form>
+            <br />
+        </Container>
     );
-}
+};
 
 export default PostCreateForm;
