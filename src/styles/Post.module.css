@@ -1,11 +1,12 @@
-.Post {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
+  .Post {
+    background-color: rgb(240, 240, 100);
+    border: 2px solid #dfe215;
+    border-radius: 5px;
     margin-bottom: 16px;
     text-align: center;
   }
   
+
   .Post figure,
   h5 {
     margin: 0 0;
