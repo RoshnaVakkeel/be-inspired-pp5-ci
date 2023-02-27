@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Alert from 'react-bootstrap/Alert';
 import Image from "react-bootstrap/Image";
 
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"; 
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Asset from "../../components/Asset";
@@ -110,9 +110,8 @@ const PostCreateForm = () => {
                     <Form.Label>Which category defines it the best?</Form.Label>
                     <Form.Control
                         as="select"
-                        defaultValue="Choose"
                         aria-label="category"
-                        placeholder="Make a selection"
+                        value={category}
                         name="category"
                         onChange={handleChange}
                     >
@@ -123,7 +122,6 @@ const PostCreateForm = () => {
                         <option value="Place">Place</option>
                         <option value="Art">Art</option>
                         <option value="Event">Event</option>
-                        <option value="Stories">Stories</option>
                         <option value="Movies">Movies</option>
                     </Form.Control>
                 </Form.Group>
@@ -196,7 +194,7 @@ const PostCreateForm = () => {
                 </Button>
                 <Button
                     onClick={() => history.goBack()}
-                    className={`${btnStyles.Button} ml-3`}
+                    className={`${btnStyles.Button}`}
                     type="submit"
                 >
                     Cancel
