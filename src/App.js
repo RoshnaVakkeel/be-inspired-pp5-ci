@@ -20,14 +20,14 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-        <Route
+          <Route
             exact
             path="/"
             render={() => (
               <PostsListPage message="No results found. Adjust the search keyword." />
             )}
           />
-                    <Route
+          <Route
             exact
             path="/feed"
             render={() => (
@@ -43,7 +43,7 @@ function App() {
             render={() => (
               <PostsListPage
                 message="No results found. Adjust the search keyword or like a post."
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_on&`}
               />
             )}
           />
