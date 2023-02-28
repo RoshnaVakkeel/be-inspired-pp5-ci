@@ -1,0 +1,15 @@
+.DropdownItem {
+  display: inline-block;
+  max-width: 50%;
+}
+
+.DropdownItem i {
+  font-size: 1.5em;
+  color: grey;
+}
+
+.Absolute {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+}
