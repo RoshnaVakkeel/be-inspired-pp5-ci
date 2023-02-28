@@ -66,7 +66,7 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink
-        to="/feed"
+        to="/Liked"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
