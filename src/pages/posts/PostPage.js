@@ -41,7 +41,7 @@ function PostPage() {
             <Row>
                 <Col>Left Panel</Col>
 
-                <Col  sm={8}>
+                <Col md={12} xl={8}>
                     <p>Popular profiles for mobile</p>
 
                     <Post

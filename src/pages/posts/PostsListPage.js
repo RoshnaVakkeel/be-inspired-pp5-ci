@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import NoResults from "../../assets/no-results.png";
+import styles from "../../styles/PostsListPage.module.css";
+import appStyles from "../../App.module.css";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Form from 'react-bootstrap/Form';
 
-import appStyles from "../../App.module.css";
+
 
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
@@ -25,6 +28,7 @@ function PostsListPage({ message, filter = "" }) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
     const currentUser = useCurrentUser();
+    const [query, setQuery] = useState('');
 
     /**
     * Fetches posts from the API.
@@ -33,7 +37,7 @@ function PostsListPage({ message, filter = "" }) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?${filter}`);
+                const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
                 setPosts(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -42,17 +46,42 @@ function PostsListPage({ message, filter = "" }) {
         };
 
         setHasLoaded(false);
-        fetchPosts();
-    }, [filter, pathname, currentUser]);
+        const timer = setTimeout(() => {
+            fetchPosts();
+        }, 700);
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [filter, pathname, currentUser, query]);
 
     return (
         <Container>
             <Row className="h-100">
                 <Col>Left Panel</Col>
 
-                <Col sm={8}>
+                <Col md={12} xl={8}>
                     <p>Popular profiles for mobile</p>
-                    
+
+                    {/* SearchBar */}
+                    <Container className="p-0">
+                        <i className={`fas fa-search ${styles.SearchIcon}`} />
+                        <Form
+                            className={`p-0 ${styles.SearchBar}`}
+                            onSubmit={(event) => event.preventDefault()}
+                        >
+                            <Form.Group controlId="search-bar">
+                                <Form.Label className="d-none">Search bar</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    className="mr-sm-2"
+                                    placeholder="Search posts"
+                                    value={query}
+                                    onChange={(event) => setQuery(event.target.value)}
+                                />
+                            </Form.Group>
+                        </Form>
+                    </Container>
+
 
                     {hasLoaded ? (
                         <>
