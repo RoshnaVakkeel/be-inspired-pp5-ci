@@ -36,26 +36,33 @@ function PostPage() {
 
 
 
-        return (
-            <Row className="h-100">
-                <Col className="py-2 p-0 " md={11} xl={7}>
+    return (
+        <Container>
+            <Row>
+                <Col>Left Panel</Col>
 
+                <Col  sm={8}>
                     <p>Popular profiles for mobile</p>
 
-                    <Post 
-                    {...post.results[0]} 
-                    setPosts={setPost} 
-                    postPage/> 
+                    <Post
+                        {...post.results[0]}
+                        setPosts={setPost}
+                        postPage />
 
                     <Container className={appStyles.Content}>
                         Comments
                     </Container>
+
                 </Col>
-                <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+
+                <Col  className="d-none d-lg-block p-0 p-lg-2">
                     Popular profiles for desktop
+
                 </Col>
             </Row>
-        );
-    }
+        </Container>
+    );
+
+}
 
 export default PostPage;
