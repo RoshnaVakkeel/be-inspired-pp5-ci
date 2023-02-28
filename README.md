@@ -120,4 +120,6 @@ For the React project set up
 This is used to render the layout and styling of the website. The library makes it easy to create and use standard interface elements that are responsive.
 - react-router-dom - using the command `npm install react-router-dom@5.3.0`
  This library makes the site navigation easier without the need to refresh the page. In social media sites ith mutiple components, it provides a quick and responsive user experience.
-- 
+- axios - installed using command `npm install axios`.It manages the calls to the backend database. Simplifies the API requestsand the included interceptors refresh JSON Web Tokens which the site uses.
+- infinite-scroll-component - installed using command ` npm install react-infinite-scroll-component`.
+It is used to enable infinite scrolling on the Posts and Recommendations components and on comments. Infinite scrolling is a standard feature in all social media sites.
