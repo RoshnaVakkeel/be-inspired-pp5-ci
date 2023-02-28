@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 
 
-function PostsPage() {
+function PostsListPage() {
   
     return (
         <Container>
@@ -34,4 +34,4 @@ function PostsPage() {
     );
 
 }
-export default PostsPage;
+export default PostsListPage;
