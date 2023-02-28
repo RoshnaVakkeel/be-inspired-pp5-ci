@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from '../../styles/Post.module.css'
+import { DropdownMenu } from "../../components/DropdownMenu";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from '../../api/axiosDefaults';
 
@@ -34,7 +36,7 @@ const Post = (props) => {
      * */
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
-
+    const history = useHistory();
 
     /** 
      * To like a post by the user
@@ -78,6 +80,29 @@ const Post = (props) => {
         }
     };
 
+    /*
+  Handles editing of the post
+*/
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+    };
+
+    /**
+      * Handles deleting of the post
+      * Redirects the user to the main page in a second
+    */
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            setTimeout(function () {
+                history.push("/");
+            }, 1000);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+
     return (
         <Card className={styles.Post}>
             <Card.Body>
@@ -88,7 +113,9 @@ const Post = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_on}</span>
-                        {is_owner && postPage && "..."}
+                        {is_owner && postPage && <DropdownMenu
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete} />}
                     </div>
                 </Media>
             </Card.Body>
