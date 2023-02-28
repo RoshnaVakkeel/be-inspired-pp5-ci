@@ -8,13 +8,13 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Form from 'react-bootstrap/Form';
 
-
-
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
+import { fetchMoreData } from '../../utils/utils';
 import Post from "./Post";
 import { useLocation } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 /**
  * Renders PostsList - 
@@ -45,10 +45,10 @@ function PostsListPage({ message, filter = "" }) {
             }
         };
 
-        setHasLoaded(false);
+        setHasLoaded(false);  // to limit the request to API request after 1.2 seconds  
         const timer = setTimeout(() => {
             fetchPosts();
-        }, 700);
+        }, 1200);
         return () => {
             clearTimeout(timer);
         }
@@ -84,17 +84,28 @@ function PostsListPage({ message, filter = "" }) {
 
 
                     {hasLoaded ? (
-                        <>
-                            {posts.results.length ? (
-                                posts.results.map((post) => (
-                                    <Post key={post.id} {...post} setPosts={setPosts} />
-                                ))
-                            ) : (
-                                <Container className={appStyles.Content}>
-                                    <Asset src={NoResults} message={message} />
-                                </Container>
-                            )}
-                        </>
+                <>
+                    {posts.results.length ? (
+                        <Container className="p-0">
+                            <InfiniteScroll 
+                                children={
+                                    posts.results.map(post => (
+                                        <Post key={post.id} {...post} setPosts={setPosts} />
+                                    ))
+                                }
+                                dataLength={posts.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!posts.next}
+                                next={() => fetchMoreData(posts, setPosts)}
+                            />
+                        </Container> 
+                    ) : (
+                        <Container className={appStyles.Content}>
+                            <h2 className="text-center">No results</h2>
+                            <Asset src={NoResults} message={message} />
+                        </Container>
+                    )}
+                </>
                     ) : (
                         <Container className={appStyles.Content}>
                             <Asset spinner />
