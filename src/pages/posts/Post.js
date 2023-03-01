@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../../styles/Post.module.css'
 import { DropdownMenu } from "../../components/DropdownMenu";
+import FeedbackMsg from '../../components/Feedbackmsg';
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from '../../api/axiosDefaults';
+
 
 /**
  * Renders a selected Post object from the API
@@ -37,6 +39,7 @@ const Post = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+    const [showAlert, setShowAlert] = useState(false);
 
     /** 
      * To like a post by the user
@@ -89,11 +92,13 @@ const Post = (props) => {
 
     /**
       * Handles deleting of the post
+      * Shows Alert message when the post is deleted
       * Redirects the user to the main page in a second
     */
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/posts/${id}/`);
+            setShowAlert(true);
             setTimeout(function () {
                 history.push("/");
             }, 1000);
@@ -105,6 +110,9 @@ const Post = (props) => {
 
     return (
         <Card className={styles.Post}>
+            {showAlert && (
+                <FeedbackMsg variant="info" message="Your post has been successfully deleted.." />
+            )}
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
