@@ -1,0 +1,26 @@
+
+  .Comment {
+    background-color: rgb(240, 240, 100);
+    border: 2px solid #dfe215;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  
+  .OwnerName {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+    margin-right: 6px;
+  }
+  
+  .Date {
+    font-weight: lighter;
+    color: grey;
+    padding-left: 5px;
+  }
+  
+  .DropdownDots {
+    float: right;
+  }
