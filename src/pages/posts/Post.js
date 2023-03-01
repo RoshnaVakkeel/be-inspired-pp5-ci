@@ -99,9 +99,10 @@ const Post = (props) => {
         try {
             await axiosRes.delete(`/posts/${id}/`);
             setShowAlert(true);
+            
             setTimeout(function () {
                 history.push("/");
-            }, 1000);
+            }, 1500);
         } catch (err) {
             console.log(err);
         }
