@@ -3,6 +3,8 @@ import NoResults from "../../assets/no-results.png";
 import styles from "../../styles/PostsListPage.module.css";
 import appStyles from "../../App.module.css";
 
+import PopularProfiles from "../profiles/PopularProfiles";
+
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -56,7 +58,7 @@ function PostsListPage({ message, filter = "" }) {
 
     return (
         <Container>
-            <Row className="h-100">
+            <Row className="h-100 mt-5">
                 <Col>Left Panel</Col>
 
                 <Col md={12} xl={7}>
@@ -117,9 +119,8 @@ function PostsListPage({ message, filter = "" }) {
 
                 </Col>
 
-                <Col className="d-none d-lg-block p-0 p-lg-2">
-                    Popular profiles for desktop
-
+                <Col xl={3} className="d-none d-xl-block pt-2">
+                    <PopularProfiles />
                 </Col>
             </Row>
         </Container>
