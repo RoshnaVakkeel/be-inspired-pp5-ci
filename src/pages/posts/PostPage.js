@@ -13,6 +13,10 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+
 /**
  * Renders the PostPage, detailed page of a selected post.
  * Credit: Moments walkthrough
@@ -63,17 +67,24 @@ function PostPage() {
                                 setPost={setPost}
                                 setComments={setComments}
                             />
-                        ) : comments.results.length ? (
-                            "Comments"
-                        ) : null}
-                        {comments.results.length ? (
-                            comments.results.map((comment) => (
-                                <Comment key={comment.id} 
-                                {...comment} 
-                                setPost ={setPost} 
-                                setComments = {setComments} 
+                            ) : comments.results.length ? (
+                                "Comments"
+                              ) : null}
+                              {comments.results.length ? (
+                                <InfiniteScroll
+                                  children={comments.results.map((comment) => (
+                                    <Comment
+                                      key={comment.id}
+                                      {...comment}
+                                      setPost={setPost}
+                                      setComments={setComments}
+                                    />
+                                  ))}
+                                  dataLength={comments.results.length}
+                                  loader={<Asset spinner />}
+                                  hasMore={!!comments.next}
+                                  next={() => fetchMoreData(comments, setComments)}
                                 />
-                            ))
                         ) : currentUser ? (
                             <span>No comments yet, be the first to comment!</span>
                         ) : (

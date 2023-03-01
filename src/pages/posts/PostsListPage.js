@@ -82,30 +82,29 @@ function PostsListPage({ message, filter = "" }) {
                         </Form>
                     </Container>
 
-
                     {hasLoaded ? (
-                <>
-                    {posts.results.length ? (
-                        <Container className="p-0">
-                            <InfiniteScroll 
-                                children={
-                                    posts.results.map(post => (
-                                        <Post key={post.id} {...post} setPosts={setPosts} />
-                                    ))
-                                }
-                                dataLength={posts.results.length}
-                                loader={<Asset spinner />}
-                                hasMore={!!posts.next}
-                                next={() => fetchMoreData(posts, setPosts)}
-                            />
-                        </Container> 
-                    ) : (
-                        <Container className={appStyles.Content}>
-                            <h2 className="text-center">No results</h2>
-                            <Asset src={NoResults} message={message} />
-                        </Container>
-                    )}
-                </>
+                        <>
+                            {posts.results.length ? (
+                                <Container className="p-0">
+                                    <InfiniteScroll
+                                        children={
+                                            posts.results.map(post => (
+                                                <Post key={post.id} {...post} setPosts={setPosts} />
+                                            ))
+                                        }
+                                        dataLength={posts.results.length}
+                                        loader={<Asset spinner />}
+                                        hasMore={!!posts.next}
+                                        next={() => fetchMoreData(posts, setPosts)}
+                                    />
+                                </Container>
+                            ) : (
+                                <Container className={appStyles.Content}>
+                                    <h2 className="text-center">No results</h2>
+                                    <Asset src={NoResults} message={message} />
+                                </Container>
+                            )}
+                        </>
                     ) : (
                         <Container className={appStyles.Content}>
                             <Asset spinner />
