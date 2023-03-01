@@ -59,7 +59,7 @@ function PostsListPage({ message, filter = "" }) {
             <Row className="h-100">
                 <Col>Left Panel</Col>
 
-                <Col md={12} xl={8}>
+                <Col md={12} xl={7}>
                     <p>Popular profiles for mobile</p>
 
                     {/* SearchBar */}
