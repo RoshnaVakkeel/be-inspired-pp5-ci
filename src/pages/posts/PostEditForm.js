@@ -115,7 +115,7 @@ const PostEditForm = () => {
     return (
         <Container >
             <h3 className={`${createFormStyles.Title} mt-5`}>
-                Add a post about your inspiration here!
+                Go ahead and edit your post!
             </h3>
             <strong>
 
@@ -222,7 +222,7 @@ const PostEditForm = () => {
 
                 <Button className={`${btnStyles.Button} ml-3`}
                     type="submit">
-                    Submit
+                    Update
                 </Button>
                 <Button
                     onClick={() => history.goBack()}
