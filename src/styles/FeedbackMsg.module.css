@@ -1,0 +1,27 @@
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .info {
+    background-color: #e9482c;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 1s;
+  }
+    
+  .hide {
+    display: none;
+  }
