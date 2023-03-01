@@ -1,12 +1,14 @@
 .Button {
     font-size: 1.2rem;
+    font-weight: 600;
     letter-spacing: 0.1em;
     align-self: center;
     border-radius: 100px;
     border-color: transparent;
     padding: 4px 10px;
     margin: auto;
-    background-color: #df6000;
+    background-color: #d66208;
+    color: black
   }
   
   .Button:hover {
@@ -32,4 +34,16 @@
     padding: 10px 40px;
     width: 100%;
   }
+
+
+
+.CommentButton {
+  border: 1px solid rgb(21, 206, 21);
+  background-color: rgb(97, 187, 97);
+  margin: 5px 1px 0 0;
+  min-width: 75px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
   
