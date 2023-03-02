@@ -61,8 +61,8 @@ function PostsListPage({ message, filter = "" }) {
             <Row className="h-100 mt-5">
                 <Col>Left Panel</Col>
 
-                <Col md={12} xl={7}>
-                    <p>Popular profiles for mobile</p>
+                <Col className="py-2 p-0" md={11} xl={7}>
+                    <PopularProfiles mobile/>
 
                     {/* SearchBar */}
                     <Container className="p-0">
@@ -116,11 +116,10 @@ function PostsListPage({ message, filter = "" }) {
                     <Container className={appStyles.Content}>
                         Comments
                     </Container>
-
                 </Col>
-
+                
                 <Col xl={3} className="d-none d-xl-block pt-2">
-                    <PopularProfiles />
+                    <PopularProfiles /> 
                 </Col>
             </Row>
         </Container>
