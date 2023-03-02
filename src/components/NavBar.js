@@ -13,7 +13,6 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import Avatar from './Avatar';
 import useClickOutsideToggle from '../hook/useClickOutsideToggle';
 
-
 /**
  * Returns the navigation bar.
  * Codes credit: CI's Moments walkthrough - Modified to fit the features
@@ -26,9 +25,15 @@ const NavBar = () => {
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+
+  /**
+   * Handles user logout
+   * Redirects to the Homepage
+   */
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
+      setExpanded(false);
       setCurrentUser(null);
     } catch (err) {
       console.log(err);
@@ -45,7 +50,10 @@ const NavBar = () => {
     </NavLink>
   );
 
-
+  /**
+   *  Displays current username with its avatar in the navbar
+      With a dropdown option to view user profile or log-out on click
+   */
   const loggedInIcons = (
     <>
       <NavLink
@@ -56,6 +64,7 @@ const NavBar = () => {
         <i className="fa fa-star" aria-hidden="true"></i>
         Recommendation
       </NavLink>
+
       <NavLink
         to="/feed"
         className={styles.NavLink}
@@ -86,9 +95,10 @@ const NavBar = () => {
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image}
-          text="Profile"
+          text=""
           height={33}
         />
+        {currentUser?.username}'s Profile
       </NavLink>
     </>
   );
@@ -122,6 +132,7 @@ const NavBar = () => {
       className="shadow p-3 mb-2 rounded"
       expand="md"
       fixed="top">
+
       <Container className="p-2">
         <NavLink to="/">
           <Navbar.Brand className={styles.NavBarBrand}>
@@ -152,6 +163,6 @@ const NavBar = () => {
       </Container>
     </Navbar>
   );
-}
+};
 
-export default NavBar
+export default NavBar;
