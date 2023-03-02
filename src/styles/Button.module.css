@@ -1,66 +1,66 @@
 .Button {
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    align-self: center;
-    border-radius: 100px;
-    border-color: transparent;
-    padding: 4px 10px;
-    margin: auto;
-    background-color: #d66208;
-    color: black
-  }
-  
-  .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-    background-color: #df6000 !important;
-  }
-  
-  .Button:hover:active {
-    background-color: #df6000 !important;
-  }
-  
-  .Button:active {
-    background-color: #df6000 !important;
-  }
-  
-  .Button:focus {
-    background-color: #df6000;
-  }
-  
-  .Wide {
-    padding: 10px 40px;
-    width: 100%;
-  }
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  align-self: center;
+  border: 1px solid salmon;
+  border-radius: 100px;
+  padding: 4px 10px;
+  margin: auto;
+  background-image:linear-gradient(rgb(211, 45, 26),orange);
+  text-decoration: none;
+}
 
-  .CommentButton {
-    border: 1px solid rgb(21, 206, 21);
-    background-color: rgb(97, 187, 97);
-    margin: 5px 1px 0 0;
-    min-width: 75px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: black;
-  }
-  
-  .CommentSave {
-    border: 1px solid rgb(21, 206, 21);
-    background-color: rgb(97, 187, 97);
-    margin: 5px 1px 0 0;
-    min-width: 75px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: black;
-  }
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+  background-color: #df6000 !important;
+}
 
-  .CommentCancel {
-    border: 1px solid rgb(21, 206, 21);
-    background-color: rgb(97, 187, 97);
-    margin: 5px 1px 0 0;
-    min-width: 75px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: black;
-  }
+.Button:hover:active {
+  background-color: #df6000 !important;
+}
+
+.Button:active {
+  background-color: #df6000 !important;
+}
+
+.Button:focus {
+  background-color: #df6000;
+}
+
+.Wide {
+  padding: 10px 40px;
+  width: 100%;
+}
+
+.CommentButton {
+  border: 1px solid rgb(21, 206, 21);
+  background-color: rgb(97, 187, 97);
+  margin: 5px 1px 0 0;
+  min-width: 75px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.CommentSave {
+  border: 1px solid rgb(21, 206, 21);
+  background-color: rgb(97, 187, 97);
+  margin: 5px 1px 0 0;
+  min-width: 75px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.CommentCancel {
+  border: 1px solid rgb(21, 206, 21);
+  background-color: rgb(97, 187, 97);
+  margin: 5px 1px 0 0;
+  min-width: 75px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
