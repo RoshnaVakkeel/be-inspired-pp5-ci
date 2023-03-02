@@ -18,7 +18,7 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
 
   useEffect(() => {
-    setHasLoaded(true);
+      setHasLoaded(true);
   }, [])
 
   const mainProfile = (
@@ -32,7 +32,7 @@ function ProfilePage() {
           <p>Profile stats</p>
         </Col>
         <Col lg={3} className="text-lg-right">
-          <p>Follow button</p>
+        <p>Follow button</p>
         </Col>
         <Col className="p-3">Profile content</Col>
       </Row>
@@ -73,5 +73,4 @@ function ProfilePage() {
     </Container>
   );
 }
-
 export default ProfilePage;
