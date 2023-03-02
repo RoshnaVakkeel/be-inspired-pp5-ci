@@ -5,6 +5,7 @@ import appStyles from "../../App.module.css";
 import styles from '../../styles/PopularProfiles.module.css'
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
   const [profileData, setProfileData] = useState({
@@ -34,28 +35,23 @@ const PopularProfiles = ({ mobile }) => {
 
   return (
     <Container
-      className={ `${appStyles.Content}
-      ${appStyles.ProfileContainer} 
-      ${mobile ? 
-          (
-              "d-xl-none text-center mb-4"
-          ) : (
-              styles.PopularProfiles
-          )
-      }`}
+      className={`${appStyles.Content} ${
+        mobile && "d-lg-none text-center mb-3"
+      } mt-4`}
     >
       {popularProfiles.results.length ? (
         <>
-          <p>Most followed profiles.</p>
+          <h4 className={styles.Header}>Active Inspirers</h4>
+          <hr />
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 4).map((profile) => (
-                <p key={profile.id}>{profile.owner}</p>
+                <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
           ) : (
             popularProfiles.results.map((profile) => (
-              <p key={profile.id}>{profile.owner}</p>
+              <Profile key={profile.id} profile={profile} />
             ))
           )}
         </>
