@@ -14,3 +14,21 @@
   cursor: default;
   color: #f0cf36;
 }
+
+.Badge {
+  font-size: 1rem;
+  margin: 0 0 10px 5px;
+  padding: 10px 20px;
+  background-image: linear-gradient(rgb(14, 202, 61), rgb(29, 199, 100));
+  border-radius: 10px;
+}
+
+.Badge:hover {
+  cursor: pointer;
+}
+
+@media all and (max-width: 991px) {
+  .Badge {
+    font-size: 0.9rem;
+  }
+}

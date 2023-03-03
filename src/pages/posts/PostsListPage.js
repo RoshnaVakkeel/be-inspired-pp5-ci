@@ -5,10 +5,7 @@ import appStyles from "../../App.module.css";
 
 import PopularProfiles from "../profiles/PopularProfiles";
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import Form from 'react-bootstrap/Form';
+import { Badge, Col, Container, Form, Row } from "react-bootstrap";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
@@ -31,6 +28,7 @@ function PostsListPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const currentUser = useCurrentUser();
     const [query, setQuery] = useState('');
+    const [category, setCategory] = useState(null);
 
     /**
     * Fetches posts from the API.
@@ -39,7 +37,10 @@ function PostsListPage({ message, filter = "" }) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(
+                    `/posts/?${filter}search=${query}${category !== null ? `&category=${category}` : ""
+                    }`
+                );
                 setPosts(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -54,15 +55,32 @@ function PostsListPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         }
-    }, [filter, pathname, currentUser, query]);
+    }, [filter, pathname, currentUser, query, category]);
 
     return (
         <Container>
             <Row className="h-100 mt-5">
-                <Col>Left Panel</Col>
+                <Col xl={3} className="d-none d-xl-block pt-2">
+                    <p> LeftPanel </p>
 
-                <Col className="py-2 p-0" md={11} xl={7}>
-                    <PopularProfiles mobile/>
+                    <Container
+                        className={`${appStyles.Content} mt-3`}
+                    >
+                        <h4 className={`${styles.Header} text-center mt-2`}> Categories</h4>
+                        <hr />
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Books")}>Books</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Music")}>Music</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Person")}>Person</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Place")}>Place</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Art")}>Art</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Event")}>Event</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Movies")}>Movies</Badge>
+                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Other")}>Other</Badge>
+                    </Container>
+                </Col>
+
+                <Col className="py-2 p-0" md={11} xl={6}>
+                    <PopularProfiles mobile />
 
                     {/* SearchBar */}
                     <Container className="p-0">
@@ -117,9 +135,9 @@ function PostsListPage({ message, filter = "" }) {
                         Comments
                     </Container>
                 </Col>
-                
+
                 <Col xl={3} className="d-none d-xl-block pt-2">
-                    <PopularProfiles /> 
+                    <PopularProfiles />
                 </Col>
             </Row>
         </Container>
