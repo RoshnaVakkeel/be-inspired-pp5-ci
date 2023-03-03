@@ -16,10 +16,21 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
+import Post from "../posts/Post";
+import NoResults from "../../assets/no-results.png";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
+/**
+ * Renders the ProfilePage component - displays the users' profile
+ * Shows list of the posts and recommendations
+ * Credits - CI's Moments Walkthrough
+ */
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [profilePosts, setProfilePosts] = useState({results: []});
+
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
@@ -27,16 +38,27 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
+  /**
+ * Retrieves profile data from be-inspired-drf-api
+ */
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
+        const [
+          { data: pageProfile },
+          {data: profilePosts},
+          // {data: profileRecommendations},
+        ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+          // axiosReq.get(`/recommendations/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfilePosts(profilePosts);
+        // setProfileRecommendations(profileRecommendations);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -48,7 +70,6 @@ function ProfilePage() {
 
   const profilePageHeader = (
     <>
-      {profile?.is_owner && <DropdownMenu id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -86,14 +107,14 @@ function ProfilePage() {
             (profile?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => {}}
+                onClick={() => { }}
               >
                 Unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {}}
+                onClick={() => { }}
               >
                 Follow
               </Button>
@@ -108,11 +129,35 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <hr />
-      <p className="text-center">Profile owner's posts</p>
-      <hr />
+        <hr />
+        <div className="text-center fw-bold">{profile?.posts_count}</div>
+        <div className="text-center">Posts</div>
+        <hr />
+        {profilePosts.results.length ? (
+            <InfiniteScroll
+                children={profilePosts.results.map((post) => (
+                    <Container className="my-5" key={post.id}>
+                        <Post
+                            key={post.id} {...post} 
+                            setPosts={setProfilePosts} 
+                            profilePost 
+                        />
+                    </Container>
+                ))}
+                dataLength={profilePosts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!profilePosts.next}
+                next={() => fetchMoreData(profilePosts, setProfilePosts)}
+            />
+        ) : (
+            <Asset 
+                src={NoResults}
+                message={`No results found, ${profile?.owner} hasn't posted any posts yet.`}
+            />
+        )}
+ 
     </>
-  );
+);
 
   return (
     <Container>

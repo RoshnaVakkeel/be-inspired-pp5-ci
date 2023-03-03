@@ -10,7 +10,7 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 /**
  * To keep profile data to be in sync across all the components
- * To access profile data in several places around our application
+ * To access profile data in several places around the application
  * Credit: CI's Moments Walkthrough
  */
 
