@@ -17,9 +17,9 @@ const LeftPanel = () => {
     const loggedInIcons = (
 
         <>
+
             <Link
                 className={styles.NavLink}
-                activeClassName={styles.Active}
                 to="/posts/create"
             >
                 <i className="far fa-plus-square"></i>Create Post

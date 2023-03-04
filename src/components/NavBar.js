@@ -40,15 +40,6 @@ const NavBar = () => {
     }
   };
 
-  const addPostIcon = (
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    >
-      <i className="far fa-plus-square"></i>Create Post
-    </NavLink>
-  );
 
   /**
    *  Displays current username with its avatar in the navbar
@@ -139,7 +130,6 @@ const NavBar = () => {
             "Be Inspired"
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addPostIcon}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
