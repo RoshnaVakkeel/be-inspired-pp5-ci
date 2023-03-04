@@ -1,26 +1,23 @@
 import React from "react";
-
 import { Container } from "react-bootstrap";
-
 import appStyles from "../../App.module.css";
-import styles from '../../styles/PopularProfiles.module.css'
-
 import Asset from "../../components/Asset";
-import Profile from "./Profile";
 import { useProfileData } from "../../contexts/ProfileDataContext";
+import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
   return (
     <Container
-      className={`${appStyles.Content} ${
-        mobile && "d-lg-none text-center mb-3"
+      className={`${appStyles.Content} 
+      ${
+        mobile && "d-md-none text-center mb-3"
       }`}
     >
       {popularProfiles.results.length ? (
         <>
-          <h4 className={styles.Header}>Active Inspirers</h4>
+          <h4>Active Inspirers</h4>
           <hr />
           {mobile ? (
             <div className="d-flex justify-content-around">

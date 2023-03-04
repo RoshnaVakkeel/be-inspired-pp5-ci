@@ -6,17 +6,28 @@ import Container from 'react-bootstrap/Container';
 import styles from '../styles/LeftPanel.module.css';
 import appStyles from "../App.module.css";
 import { useCurrentUser } from '../contexts/CurrentUserContext';
+import Avatar from './Avatar';
 
 
 /**
  * Panel that is displayed on the left of the page next to the main content
  */
-const LeftPanel = () => {
+const LeftPanel = ({ mobile }) => {
     const currentUser = useCurrentUser();
 
     const loggedInIcons = (
 
         <>
+            <Link
+                className={styles.NavLink}
+                to={`/profiles/${currentUser?.profile_id}`}
+            >
+                <Avatar src={currentUser?.profile_image}
+                    text=""
+                    height={33}
+                />
+                {currentUser?.username}'s Profile
+            </Link>
 
             <Link
                 className={styles.NavLink}
@@ -36,7 +47,7 @@ const LeftPanel = () => {
 
     return (
         <Container
-            className={`${appStyles.Content} ${styles.CollapsedColumn} mb-2 ${styles.CreatePanel}`}
+            className={`${appStyles.Content} ${mobile && styles.CollapsedColumn} mb-2 ${styles.CreatePanel}`}
         >
             {currentUser ? loggedInIcons : loggedOutIcons}
         </Container>
