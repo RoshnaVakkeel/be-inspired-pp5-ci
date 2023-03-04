@@ -20,7 +20,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Post from "../posts/Post";
 import NoResults from "../../assets/no-results.png";
-import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
 /**
  * Renders the ProfilePage component - displays the users' profile
@@ -71,6 +71,7 @@ function ProfilePage() {
   const profilePageHeader = (
     <>
       <Row noGutters className="px-3 text-center">
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -95,7 +96,7 @@ function ProfilePage() {
 
         <Col lg={12}>
           <p>Full Name: {profile?.name}</p>
-          <p>Full Name: {profile?.age_group}</p>
+          <p>Age Group: {profile?.age_group}</p>
           <p>Brief Bio: {profile?.brief_bio}</p>
         </Col>
 
