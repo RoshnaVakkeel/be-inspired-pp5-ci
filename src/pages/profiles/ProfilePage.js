@@ -29,11 +29,11 @@ import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
  */
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profilePosts, setProfilePosts] = useState({results: []});
+  const [profilePosts, setProfilePosts] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const  { setProfileData, handleFollow } = useSetProfileData();
+  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
@@ -46,7 +46,7 @@ function ProfilePage() {
       try {
         const [
           { data: pageProfile },
-          {data: profilePosts},
+          { data: profilePosts },
           // {data: profileRecommendations},
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
@@ -107,14 +107,14 @@ function ProfilePage() {
             (profile?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => { }}
+                onClick={() => { handleUnfollow(profile) }}
               >
                 Unfollow
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {handleFollow(profile)}}
+                onClick={() => { handleFollow(profile) }}
               >
                 Follow
               </Button>
@@ -129,35 +129,35 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-        <hr />
-        <div className="text-center fw-bold">{profile?.posts_count}</div>
-        <div className="text-center">Posts</div>
-        <hr />
-        {profilePosts.results.length ? (
-            <InfiniteScroll
-                children={profilePosts.results.map((post) => (
-                    <Container className="my-5" key={post.id}>
-                        <Post
-                            key={post.id} {...post} 
-                            setPosts={setProfilePosts} 
-                            profilePost 
-                        />
-                    </Container>
-                ))}
-                dataLength={profilePosts.results.length}
-                loader={<Asset spinner />}
-                hasMore={!!profilePosts.next}
-                next={() => fetchMoreData(profilePosts, setProfilePosts)}
-            />
-        ) : (
-            <Asset 
-                src={NoResults}
-                message={`No results found, ${profile?.owner} hasn't posted any posts yet.`}
-            />
-        )}
- 
+      <hr />
+      <div className="text-center fw-bold">{profile?.posts_count}</div>
+      <div className="text-center">Posts</div>
+      <hr />
+      {profilePosts.results.length ? (
+        <InfiniteScroll
+          children={profilePosts.results.map((post) => (
+            <Container className="my-5" key={post.id}>
+              <Post
+                key={post.id} {...post}
+                setPosts={setProfilePosts}
+                profilePost
+              />
+            </Container>
+          ))}
+          dataLength={profilePosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePosts.next}
+          next={() => fetchMoreData(profilePosts, setProfilePosts)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't posted any posts yet.`}
+        />
+      )}
+
     </>
-);
+  );
 
   return (
     <Container>
