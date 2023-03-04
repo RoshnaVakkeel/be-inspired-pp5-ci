@@ -14,6 +14,7 @@ import Post from "./Post";
 import { useLocation } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
+import LeftPanel from "../../components/LeftPanel";
 
 /**
  * Renders PostsList - 
@@ -58,87 +59,86 @@ function PostsListPage({ message, filter = "" }) {
     }, [filter, pathname, currentUser, query, category]);
 
     return (
-        <Container>
+        <Container >
             <Row className="h-100 mt-5">
-                <Col xl={3} className="d-none d-xl-block pt-2">
-                    <p> LeftPanel </p>
+                <Col className="d-xl-block pt-2" xl={3}>
+                    <LeftPanel />
 
-                    <Container
-                        className={`${appStyles.Content} mt-3`}
-                    >
-                        <h4 className={`${styles.Header} text-center mt-2`}> Categories</h4>
-                        <hr />
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Books")}>Books</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Music")}>Music</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Person")}>Person</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Place")}>Place</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Art")}>Art</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Event")}>Event</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Movies")}>Movies</Badge>
-                        <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Other")}>Other</Badge>
-                    </Container>
-                </Col>
-
-                <Col className="py-2 p-0" md={11} xl={6}>
-                    <PopularProfiles mobile />
-
-                    {/* SearchBar */}
-                    <Container className="p-0">
-                        <i className={`fas fa-search ${styles.SearchIcon}`} />
-                        <Form
-                            className={`p-0 ${styles.SearchBar}`}
-                            onSubmit={(event) => event.preventDefault()}
+                        <Container
+                            className={`${appStyles.Content} text-center mt-3 `}
                         >
-                            <Form.Group controlId="search-bar">
-                                <Form.Label className="d-none">Search bar</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    className="mr-sm-2"
-                                    placeholder="Search posts"
-                                    value={query}
-                                    onChange={(event) => setQuery(event.target.value)}
-                                />
-                            </Form.Group>
-                        </Form>
-                    </Container>
-
-                    {hasLoaded ? (
-                        <>
-                            {posts.results.length ? (
-                                <Container className="p-0">
-                                    <InfiniteScroll
-                                        children={
-                                            posts.results.map(post => (
-                                                <Post key={post.id} {...post} setPosts={setPosts} />
-                                            ))
-                                        }
-                                        dataLength={posts.results.length}
-                                        loader={<Asset spinner />}
-                                        hasMore={!!posts.next}
-                                        next={() => fetchMoreData(posts, setPosts)}
-                                    />
-                                </Container>
-                            ) : (
-                                <Container className={appStyles.Content}>
-                                    <h2 className="text-center">No results</h2>
-                                    <Asset src={NoResults} message={message} />
-                                </Container>
-                            )}
-                        </>
-                    ) : (
-                        <Container className={appStyles.Content}>
-                            <Asset spinner />
+                            <h4 className={`${styles.Header} text-center mt-2`}> Categories</h4>
+                            <hr />
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Books")}>Books</Badge>
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Music")}>Music</Badge>
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Person")}>Person</Badge>
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Place")}>Place</Badge>
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Art")}>Art</Badge>
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Event")}>Event</Badge>
+                            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Movies")}>Movies</Badge>
                         </Container>
-                    )}
+                    </Col>
 
-                    <Container className={appStyles.Content}>
-                        Comments
-                    </Container>
-                </Col>
+                    <Col className="py-2 p-0" md={11} xl={6}>
+                        <PopularProfiles mobile />
 
-                <Col xl={3} className="d-none d-xl-block pt-2">
-                    <PopularProfiles />
-                </Col>
+                        {/* SearchBar */}
+                        <Container className="p-0">
+                            <i className={`fas fa-search ${styles.SearchIcon}`} />
+                            <Form
+                                className={`p-0 ${styles.SearchBar}`}
+                                onSubmit={(event) => event.preventDefault()}
+                            >
+                                <Form.Group controlId="search-bar">
+                                    <Form.Label className="d-none">Search bar</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        className="mr-sm-2"
+                                        placeholder="Search posts"
+                                        value={query}
+                                        onChange={(event) => setQuery(event.target.value)}
+                                    />
+                                </Form.Group>
+                            </Form>
+                        </Container>
+
+                        {hasLoaded ? (
+                            <>
+                                {posts.results.length ? (
+                                    <Container className="p-0">
+                                        <InfiniteScroll
+                                            children={
+                                                posts.results.map(post => (
+                                                    <Post key={post.id} {...post} setPosts={setPosts} />
+                                                ))
+                                            }
+                                            dataLength={posts.results.length}
+                                            loader={<Asset spinner />}
+                                            hasMore={!!posts.next}
+                                            next={() => fetchMoreData(posts, setPosts)}
+                                        />
+                                    </Container>
+                                ) : (
+                                    <Container className={appStyles.Content}>
+                                        <h2 className="text-center">No results</h2>
+                                        <Asset src={NoResults} message={message} />
+                                    </Container>
+                                )}
+                            </>
+                        ) : (
+                            <Container className={appStyles.Content}>
+                                <Asset spinner />
+                            </Container>
+                        )}
+
+                        <Container className={appStyles.Content}>
+                            Comments
+                        </Container>
+                    </Col>
+
+                    <Col xl={3} className="d-none d-xl-block pt-2">
+                        <PopularProfiles />
+                    </Col>
             </Row>
         </Container>
     );
