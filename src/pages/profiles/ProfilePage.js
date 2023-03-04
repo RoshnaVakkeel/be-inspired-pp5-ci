@@ -164,7 +164,7 @@ function ProfilePage() {
       <Row className="h-100 mt-5">
         <Col >Left Panel</Col>
 
-        <Col md={11} xl={7} className="mt-2">
+        <Col md={11} xl={6} className="mt-2">
           <PopularProfiles mobile />
           <Container className={appStyles.Content}>
             {hasLoaded ? (
