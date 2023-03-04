@@ -80,16 +80,13 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
-          <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
-              <div>{profile?.posts_count}</div>
-              <div>Posts</div>
-            </Col>
-            <Col xs={3} className="my-2">
+          <hr />
+            <Row className="justify-content-center no-gutters">
+            <Col xs={4} className="my-2">
               <div>{profile?.followers_count}</div>
               <div>Followers</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={4} className="my-2">
               <div>{profile?.following_count}</div>
               <div>Following</div>
             </Col>
@@ -98,6 +95,7 @@ function ProfilePage() {
 
         <Col lg={12}>
           <p>Full Name: {profile?.name}</p>
+          <p>Full Name: {profile?.age_group}</p>
           <p>Brief Bio: {profile?.brief_bio}</p>
         </Col>
 
@@ -130,9 +128,17 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <div className="text-center fw-bold">{profile?.posts_count}</div>
-      <div className="text-center">Posts</div>
-      <hr />
+      <Row className="justify-content-center no-gutters">
+            <Col xs={4} className="text-center">
+              <div>{profile?.posts_count}</div>
+              <div>Posts</div>
+            </Col>
+            <Col xs={4} className="text-center">
+              <div>{profile?.recommendations_count}</div>
+              <div>Recommendations</div>
+            </Col>
+            </Row>
+            <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
