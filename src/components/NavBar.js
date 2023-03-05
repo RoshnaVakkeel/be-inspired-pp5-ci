@@ -10,7 +10,6 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
-import Avatar from './Avatar';
 import useClickOutsideToggle from '../hook/useClickOutsideToggle';
 
 /**
@@ -79,17 +78,6 @@ const NavBar = () => {
         onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>
         Sign out
-      </NavLink>
-
-      <NavLink
-        className={styles.NavLink}
-        to={`/profiles/${currentUser?.profile_id}`}
-      >
-        <Avatar src={currentUser?.profile_image}
-          text=""
-          height={33}
-        />
-        {currentUser?.username}'s Profile
       </NavLink>
     </>
   );
