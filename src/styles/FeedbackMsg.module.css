@@ -10,7 +10,11 @@
   .info {
     background-color: #e9482c;
   }
-  
+
+  .success {
+    background-color: green;
+  }
+
   .closebtn {
     margin-left: 15px;
     color: white;
