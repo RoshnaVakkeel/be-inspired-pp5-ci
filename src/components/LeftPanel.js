@@ -28,12 +28,19 @@ const LeftPanel = ({ mobile }) => {
                 />
                 {currentUser?.username}'s Profile
             </Link>
-
+            <br />
             <Link
-                className={styles.NavLink}
+                className={`${styles.NavLink} p-2`}
                 to="/posts/create"
             >
                 <i className="far fa-plus-square"></i>Create Post
+            </Link>
+            <br />
+            <Link
+                className={`${styles.NavLink} p-2`}
+                to="/recommendations/create"
+            >
+                <i className="far fa-plus-square"></i>Create Recommendations
             </Link>
         </>
     );
@@ -49,7 +56,10 @@ const LeftPanel = ({ mobile }) => {
         <Container
             className={`${appStyles.Content} ${mobile && styles.CollapsedColumn} mb-2 ${styles.CreatePanel}`}
         >
-            {currentUser ? loggedInIcons : loggedOutIcons}
+            <h4 className='text-center py-2'>Create to Inspire!</h4>
+            <div>
+                {currentUser ? loggedInIcons : loggedOutIcons}
+            </div>
         </Container>
     );
 };
