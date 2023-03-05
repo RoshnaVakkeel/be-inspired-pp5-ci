@@ -13,13 +13,14 @@ import Upload from "../../assets/upload.png";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import createFormStyles from "../../styles/PostCreateForm.module.css";
+import { useRedirect } from "../../hooks/useRedirect";
 
 
 /**
  * Form to create posts
  */
 const PostCreateForm = () => {
-
+    useRedirect("loggedOut");
     const [errors, setErrors] = useState({});
 
     const [postData, setPostData] = useState({

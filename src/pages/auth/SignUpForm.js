@@ -7,6 +7,7 @@ import Alert from 'react-bootstrap/Alert';
 import styles from "../../styles/SignUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import axios from 'axios';
+import { useRedirect } from '../../hooks/useRedirect';
 
 
 const SignUpForm = () => {
@@ -15,6 +16,7 @@ const SignUpForm = () => {
  * Followed Moments walkthrough was used as a guidance
  * To create variables, data handling and error handling code
  */
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -117,7 +119,7 @@ const SignUpForm = () => {
         ))}
 
       </Form>
-      
+
       <div>
         <p>
           Already have an account?
