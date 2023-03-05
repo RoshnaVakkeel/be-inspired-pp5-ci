@@ -101,7 +101,7 @@ const Post = (props) => {
             setShowAlert(true);
             
             setTimeout(function () {
-                history.push("/");
+                history.goBack();
             }, 1500);
         } catch (err) {
             console.log(err);
