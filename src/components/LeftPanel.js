@@ -54,9 +54,10 @@ const LeftPanel = ({ mobile }) => {
 
     return (
         <Container
-            className={`${appStyles.Content} ${mobile && styles.CollapsedColumn} mb-2 ${styles.CreatePanel}`}
+            className={`${appStyles.Content} ${mobile && styles.CollapsedColumn} mb-3 ${styles.CreatePanel}`}
         >
-            <h4 className='text-center py-2'>Create to Inspire!</h4>
+            <h4 className='text-center mt-2'>Create and Inspire!</h4>
+            <div><hr></hr></div>
             <div>
                 {currentUser ? loggedInIcons : loggedOutIcons}
             </div>

@@ -61,12 +61,12 @@ function PostsListPage({ message, filter = "" }) {
     return (
         <Container>
             <Row className="h-100 mt-5" xl={3} lg={2} md={1}>
-                <Col className="d-xl-block pt-2" md={12} lg={3} xl={3}>
+                <Col className="d-xl-block" md={12} lg={4} xl={3}>
 
                     <LeftPanel />
 
                     <Container
-                        className={`${appStyles.Content} mt-3`}
+                        className={`${appStyles.Content} mt-3 mb-3`}
                     >
                         <h4 className={`${styles.Header} text-center mt-2`}> Categories</h4>
                         <hr />
@@ -81,7 +81,7 @@ function PostsListPage({ message, filter = "" }) {
 
                 </Col>
 
-                <Col className=" py-3 p-0" md={12} lg={5} xl={6}>
+                <Col className=" p-0" md={12} lg={8} xl={6}>
 
                    <PopularProfiles mobile />
 
@@ -139,7 +139,7 @@ function PostsListPage({ message, filter = "" }) {
                     </Container>
                 </Col>
 
-                <Col className= "d-xl-block " lg={3} xl={3}>
+                <Col className= "d-xl-block d-none" xl={3}>
                     <PopularProfiles />
                 </Col>
             </Row>
