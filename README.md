@@ -88,12 +88,15 @@ The tasks that I have followed during the development phase were carried out in 
 #### Sprints
 The project was divided mainly into three main sprints spanning a week.
 
-- Sprint 1 was to set up Backend be-inspired-drf-api.
+- **Sprint 1** was to set up Backend be-inspired-drf-api.
 
-- Sprint 2 was to set up Frontend ReactJS app
+- **Sprint 2** was to set up Frontend ReactJS app and connect with backend API (Faced tough challenges, details in Errors and Fix section)
+	- Set up axios interceptors, create async handles and connect to backend.
+	- Set up Sign Up and Sign In pages
+	- Make forms in fronend, input data and push data into be-inspired-drf-api
+	- Pull and show data from be-inspired-drf-api
 
-
-
+- **Sprint 3** was to set up Frontend ReactJS app pages, styling, functions and fixing bugs and testing.
 
 ## Technologies
 
