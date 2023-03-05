@@ -117,9 +117,7 @@ const PostEditForm = () => {
             <h3 className={`${createFormStyles.Title} mt-5`}>
                 Go ahead and edit your post!
             </h3>
-            <strong>
 
-            </strong>
             <Form onSubmit={handleSubmit} className={createFormStyles.Container}>
                 <Form.Group>
                     <Form.Label>Title</Form.Label>
