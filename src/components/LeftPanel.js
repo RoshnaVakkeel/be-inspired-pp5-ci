@@ -33,14 +33,14 @@ const LeftPanel = ({ mobile }) => {
                 className={`${styles.NavLink} p-2`}
                 to="/posts/create"
             >
-                <i className="far fa-plus-square"></i>Create Post
+                <i className="far fa-plus-square"></i> Posts
             </Link>
             <br />
             <Link
                 className={`${styles.NavLink} p-2`}
                 to="/recommendations/create"
             >
-                <i className="far fa-plus-square"></i>Create Recommendations
+                <i className="far fa-plus-square"></i> Recommendations
             </Link>
         </>
     );

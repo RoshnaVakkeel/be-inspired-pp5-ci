@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
-import useClickOutsideToggle from '../hook/useClickOutsideToggle';
+import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 
 /**
  * Returns the navigation bar.
