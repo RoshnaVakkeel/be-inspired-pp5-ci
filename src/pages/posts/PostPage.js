@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-
+import { Badge, Col, Container, Form, Row } from "react-bootstrap";
+import styles from "../../styles/PostsListPage.module.css";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -17,6 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import LeftPanel from "../../components/LeftPanel";
 
 /**
  * Renders the PostPage, detailed page of a selected post.
@@ -28,6 +27,7 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const [category, setCategory] = useState(null);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -48,12 +48,29 @@ function PostPage() {
 
   return (
     <Container>
-      <Row className="h-100 mt-5">
-        <Col >Left Panel</Col>
+      <Row className="h-100 mt-5" xl={3} lg={2} md={2} sm={1}>
+        <Col className="d-xl-block px-2" sm={12} md={4} lg={3} xl={3}>
 
-        <Col md={11} xl={6} className="mt-2">
-        <PopularProfiles mobile/>
-        
+          <LeftPanel />
+          <Container
+            className={`${appStyles.Content} mt-3 mb-3`}
+          >
+            <h4 className={`${styles.Header} text-center mt-2`}> Categories</h4>
+            <hr />
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Books")}>Books</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Music")}>Music</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Person")}>Person</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Place")}>Place</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Art")}>Art</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Event")}>Event</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Movies")}>Movies</Badge>
+          </Container>
+
+        </Col>
+        <Col className="mx-auto px-2" sm={12} md={8} lg={8} xl={6}>
+
+          <PopularProfiles mobile />
+
           <Post
             {...post.results[0]}
             setPosts={setPost}
@@ -94,8 +111,8 @@ function PostPage() {
           </Container>
         </Col>
 
-        <Col xl={3} className="d-none d-xl-block pt-2">
-          <PopularProfiles /> 
+        <Col className="d-xl-block d-none" xl={3}>
+          <PopularProfiles />
 
         </Col>
       </Row>

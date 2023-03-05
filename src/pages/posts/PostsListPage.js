@@ -77,12 +77,11 @@ function PostsListPage({ message, filter = "" }) {
                         <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Event")}>Event</Badge>
                         <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCategory("Movies")}>Movies</Badge>
                     </Container>
-
                 </Col>
 
                 <Col className="mx-auto px-2" sm={12} md={8} lg={8} xl={6}>
 
-                   <PopularProfiles mobile />
+                    <PopularProfiles mobile />
 
                     {/* SearchBar */}
                     <Container className="p-0">
@@ -135,7 +134,7 @@ function PostsListPage({ message, filter = "" }) {
 
                 </Col>
 
-                <Col className= "d-xl-block d-none" xl={3}>
+                <Col className="d-xl-block d-none" xl={3}>
                     <PopularProfiles />
                 </Col>
             </Row>
