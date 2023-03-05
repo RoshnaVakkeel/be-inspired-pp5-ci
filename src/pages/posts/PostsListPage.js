@@ -134,9 +134,6 @@ function PostsListPage({ message, filter = "" }) {
                         </Container>
                     )}
 
-                    <Container className={appStyles.Content}>
-                        Comments
-                    </Container>
                 </Col>
 
                 <Col className= "d-xl-block d-none" xl={3}>
