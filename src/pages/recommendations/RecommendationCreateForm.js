@@ -1,46 +1,45 @@
 import React, { useRef, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Alert from 'react-bootstrap/Alert';
-import Image from "react-bootstrap/Image";
-
-import { useHistory } from "react-router-dom"; 
+import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
-import Asset from "../../components/Asset";
+import { Alert, Image, Container, Form, Button } from "react-bootstrap";
+
 import Upload from "../../assets/upload.png";
+import Asset from "../../components/Asset";
+
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import createFormStyles from "../../styles/PostCreateForm.module.css";
-import { useRedirect } from "../../hooks/useRedirect";
-
 
 /**
- * Form to create posts
+ * Form to create recommendations
  */
-const PostCreateForm = () => {
+
+const RecommendationCreateForm = () => {
     useRedirect("loggedOut");
     const [errors, setErrors] = useState({});
 
-    const [postData, setPostData] = useState({
+    const [recommendationData, setrecommendationData] = useState({
         title: "",
         category: "",
+        price_category: "",
         description: "",
+        reason: "",
         image: "",
     });
 
-    const { title, category, description, image } = postData;
+    const { title, category, price_category, description, reason, image } = recommendationData;
 
     const imageInput = useRef(null);
     const history = useHistory();
 
     /**
-     * Populate the postData strings
+     * Populate the recommendation data
      */
     const handleChange = (event) => {
-        setPostData({
-            ...postData,
+        setrecommendationData({
+            ...recommendationData,
             [event.target.name]: event.target.value,
         });
     };
@@ -51,8 +50,8 @@ const PostCreateForm = () => {
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
-            setPostData({
-                ...postData,
+            setrecommendationData({
+                ...recommendationData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
         }
@@ -67,14 +66,16 @@ const PostCreateForm = () => {
 
         formData.append("title", title);
         formData.append("category", category);
+        formData.append("price_category", price_category);
         formData.append("description", description);
+        formData.append("reason", reason);
         formData.append("image", imageInput.current.files[0]);
 
         try {
-            const { data } = await axiosReq.post("/posts/", formData);
-            history.push(`/posts/${data.id}`);
+            const { data } = await axiosReq.post("/recommendations/", formData);
+            history.push(`/recommendations/${data.id}`);
         } catch (err) {
-            //   console.log(err);
+            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
@@ -84,7 +85,7 @@ const PostCreateForm = () => {
     return (
         <Container >
             <h3 className={`${createFormStyles.Title} mt-5`}>
-                Add a post about your inspiration here!
+                Add a recommendation about your inspiration here!
             </h3>
             <strong>
 
@@ -133,6 +134,29 @@ const PostCreateForm = () => {
                 ))}
 
                 <Form.Group>
+                    <Form.Label>Which category defines it the best?</Form.Label>
+                    <Form.Control
+                        as="select"
+                        aria-label="price_category"
+                        value={price_category}
+                        name="price_category"
+                        onChange={handleChange}
+                    >
+                        <option value="Select a price_category">Select a price_category</option>
+                        <option value="Free">Free</option>
+                        <option value="Cheap (€)">Cheap</option>
+                        <option value="Average (€€)">Average</option>
+                        <option value="Above Average (€€€)">AboveAverage</option>
+                        <option value="Expensive (€€€€)">Expensive</option>
+                    </Form.Control>
+                </Form.Group>
+                {errors.price_category?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
+
+                <Form.Group>
                     <Form.Label>Decribe your inspiration</Form.Label>
                     <Form.Control
                         as="textarea"
@@ -149,13 +173,30 @@ const PostCreateForm = () => {
                         {message}
                     </Alert>
                 ))}
-
+                
+                <Form.Group>
+                    <Form.Label>Tell more on why do you recommend it..</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={6}
+                        name="reason"
+                        aria-label="reason"
+                        placeholder="Describe in a few words why do you recommend it to others.."
+                        value={reason}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                {errors?.reason?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                        {message}
+                    </Alert>
+                ))}
                 <Form.Group className="text-center">
                     {image ? (
                         <>
                             <figure>
-                                <Image className={appStyles.Image} 
-                                src={image} rounded />
+                                <Image className={appStyles.Image}
+                                    src={image} rounded />
                             </figure>
                             <div>
                                 <Form.Label
@@ -207,4 +248,4 @@ const PostCreateForm = () => {
     );
 };
 
-export default PostCreateForm;
+export default RecommendationCreateForm

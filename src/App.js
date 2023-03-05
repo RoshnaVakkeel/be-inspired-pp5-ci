@@ -14,6 +14,7 @@ import PostsListPage from './pages/posts/PostsListPage';
 import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import ProfilePasswordChange from './pages/profiles/ProfilePasswordChange';
+import RecommendationCreateForm from './pages/recommendations/RecommendationCreateForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -57,9 +58,13 @@ function App() {
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
+
+          <Route exact path="/recommendations/create" render={() => <RecommendationCreateForm />} />
+
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
           <Route exact path="/profiles/:id/edit/password" render={() => <ProfilePasswordChange />} />
+          
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
