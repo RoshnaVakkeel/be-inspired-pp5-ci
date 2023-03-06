@@ -15,6 +15,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import ProfilePasswordChange from './pages/profiles/ProfilePasswordChange';
 import RecommendationCreateForm from './pages/recommendations/RecommendationCreateForm';
+import RecommendationPage from './pages/recommendations/RecommendationPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -60,6 +61,7 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
 
           <Route exact path="/recommendations/create" render={() => <RecommendationCreateForm />} />
+          <Route exact path="/recommendations/:id" render={() => <RecommendationPage />} />
 
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
