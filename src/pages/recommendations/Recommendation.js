@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../../styles/Recommendation.module.css'
-import { DropdownMenu } from "../../components/DropdownMenu";
+
 import FeedbackMsg from '../../components/Feedbackmsg';
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -8,6 +8,8 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from '../../api/axiosDefaults';
+import { DropdownMenu } from "../../components/DropdownMenu";
+
 /**
  * Renders a selected Recommendation object from the API
  * Guidance - Moments walkthrough
@@ -29,7 +31,6 @@ const Recommendation = (props) => {
     like_id,
     image,
     updated_on,
-    recommendationPage,
     setRecommendations,
 } = props;
 
@@ -123,9 +124,12 @@ const handleDelete = async () => {
             </Link>
             <div className="d-flex align-items-center">
                 <span>{updated_on}</span>
-                {is_owner && recommendationPage && <DropdownMenu
-                    handleEdit={handleEdit}
-                    handleDelete={handleDelete} />}
+                {is_owner && setRecommendations && (
+                        <DropdownMenu 
+                            handleEdit={handleEdit} 
+                            handleDelete={handleDelete} 
+                        />
+                    )}
             </div>
         </Media>
     </Card.Body>

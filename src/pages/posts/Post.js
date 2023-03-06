@@ -34,7 +34,7 @@ const Post = (props) => {
 
     /** 
      * For user authentication
-     * To restrict owner of the post not to like their on post 
+     * To restrict owner of the post not to like their own post 
      * */
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
@@ -93,7 +93,7 @@ const Post = (props) => {
     /**
       * Handles deleting of the post
       * Shows Alert message when the post is deleted
-      * Redirects the user to the main page in a second
+      * Redirects the user to the main page in over a second
     */
     const handleDelete = async () => {
         try {
@@ -135,7 +135,7 @@ const Post = (props) => {
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
                 {category && <Card.Title className="text-center">Category: {category}</Card.Title>}
                 {description && <Card.Text>{description}</Card.Text>}
-                <div className={styles.PostBar}>
+                <div>
                     {is_owner ? (
                         <OverlayTrigger
                             placement="top"
