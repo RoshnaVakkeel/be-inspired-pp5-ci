@@ -1,0 +1,34 @@
+.SearchBar input {
+    color: #1e47ce;
+    padding-left: 42px;
+  }
+  
+  .SearchIcon {
+    position: absolute;
+    font-size: 1.25rem;
+    padding-top: 10px;
+    padding-left: 12px;
+  }
+  
+  .SearchIcon:hover {
+    cursor: default;
+    color: #f0cf36;
+  }
+  
+  .Badge {
+    font-size: 1rem;
+    margin: 0 0 10px 5px;
+    padding: 10px 20px;
+    background-image: linear-gradient(rgb(97, 202, 184), rgb(75, 173, 152));
+    border-radius: 10px;
+  }
+  
+  .Badge:hover {
+    cursor: pointer;
+  }
+  
+  @media all and (max-width: 991px) {
+    .Badge {
+      font-size: 0.9rem;
+    }
+  }

@@ -16,6 +16,7 @@ import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import ProfilePasswordChange from './pages/profiles/ProfilePasswordChange';
 import RecommendationCreateForm from './pages/recommendations/RecommendationCreateForm';
 import RecommendationPage from './pages/recommendations/RecommendationPage';
+import RecommendationsListPage from './pages/recommendations/RecommendationsListPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -31,6 +32,13 @@ function App() {
             path="/"
             render={() => (
               <PostsListPage message="No results found. Adjust the search keyword." />
+            )}
+          />
+          <Route
+            exact
+            path="/recommendations"
+            render={() => (
+              <RecommendationsListPage message="No results found. Adjust the search keyword." />
             )}
           />
           <Route
@@ -64,9 +72,9 @@ function App() {
           <Route exact path="/recommendations/:id" render={() => <RecommendationPage />} />
 
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
+          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <ProfilePasswordChange />} />
-          
+
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
