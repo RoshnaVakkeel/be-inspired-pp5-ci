@@ -1,0 +1,24 @@
+.Recommendation{
+    background-color: rgb(107, 224, 185);
+    border: 2px solid #87dac8;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .Recommendation figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Heart {
+    color: #f85032;
+  }
+  
+  .Heart:hover {
+    color: #2142b2;
+  }
+  
+  .HeartOutline:hover {
+    color: #f85032;
+  }
