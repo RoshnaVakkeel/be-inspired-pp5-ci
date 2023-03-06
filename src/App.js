@@ -18,6 +18,7 @@ import RecommendationCreateForm from './pages/recommendations/RecommendationCrea
 import RecommendationPage from './pages/recommendations/RecommendationPage';
 import RecommendationsListPage from './pages/recommendations/RecommendationsListPage';
 import FullListPage from './pages/posts_recommendations/fullListPage';
+import RecommendationEditForm from './pages/recommendations/RecommendationEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -74,6 +75,7 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
 
           <Route exact path="/recommendations/create" render={() => <RecommendationCreateForm />} />
+          <Route exact path="/recommendations/:id/edit" render={() => <RecommendationEditForm/>} />
           <Route exact path="/recommendations/:id" render={() => <RecommendationPage />} />
 
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />

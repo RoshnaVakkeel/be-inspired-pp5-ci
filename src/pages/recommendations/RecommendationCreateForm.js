@@ -134,7 +134,7 @@ const RecommendationCreateForm = () => {
                 ))}
 
                 <Form.Group>
-                    <Form.Label>Which category defines it the best?</Form.Label>
+                    <Form.Label>How affordable is this inspiration?</Form.Label>
                     <Form.Control
                         as="select"
                         aria-label="price_category"
@@ -142,7 +142,7 @@ const RecommendationCreateForm = () => {
                         name="price_category"
                         onChange={handleChange}
                     >
-                        <option value="Select a price_category">Select a price_category</option>
+                        <option value="Select a price_category">Select a price-category</option>
                         <option value="Free">Free</option>
                         <option value="Cheap (€)">Cheap</option>
                         <option value="Average (€€)">Average</option>
