@@ -19,6 +19,9 @@ import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Post from "../posts/Post";
+import Recommendation from '../recommendations/Recommendation'; 
+import LeftPanel from "../../components/LeftPanel";
+
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/DropdownMenu";
 
@@ -30,7 +33,7 @@ import { ProfileEditDropdown } from "../../components/DropdownMenu";
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
-
+  const [profileRecommendations, setProfileRecommendations] = useState({results: []});
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
@@ -47,18 +50,18 @@ function ProfilePage() {
         const [
           { data: pageProfile },
           { data: profilePosts },
-          // {data: profileRecommendations},
+          { data: profileRecommendations},
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/posts/?owner__profile=${id}`),
-          // axiosReq.get(`/recommendations/?owner__profile=${id}`),
+          axiosReq.get(`/recommendations/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
-        // setProfileRecommendations(profileRecommendations);
+        setProfileRecommendations(profileRecommendations);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -162,14 +165,41 @@ function ProfilePage() {
           message={`No results found, ${profile?.owner} hasn't posted any posts yet.`}
         />
       )}
-
+<hr />
+            <div className="text-center fw-bold">{profile?.recommendations_count}</div>
+            <div className="text-center">Recommendations</div>
+            <hr />
+            {profileRecommendations.results.length ? (
+                <InfiniteScroll
+                    children={profileRecommendations.results.map((recommendation) => (
+                        <Container className="my-5" key={recommendation.id}>
+                           <Recommendation 
+                                key={recommendation.id} {...recommendation} 
+                                setRecommendations={setProfileRecommendations}
+                                profileRecommendation 
+                            /> 
+                        </Container>
+                    ))}
+                    dataLength={profileRecommendations.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!profileRecommendations.next}
+                    next={() => fetchMoreData(profileRecommendations, setProfileRecommendations)}
+                />
+            ) : (
+                <Asset 
+                    src={NoResults}
+                    message={`No results found, ${profile?.owner} hasn't posted any recommendations yet.`}
+                />
+            )}
     </>
   );
 
   return (
     <Container>
       <Row className="h-100 mt-5">
-        <Col >Left Panel</Col>
+        <Col >
+        <LeftPanel />
+        </Col>
 
         <Col md={11} xl={6} className="mt-2">
           <PopularProfiles mobile />
