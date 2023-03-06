@@ -17,6 +17,7 @@ import ProfilePasswordChange from './pages/profiles/ProfilePasswordChange';
 import RecommendationCreateForm from './pages/recommendations/RecommendationCreateForm';
 import RecommendationPage from './pages/recommendations/RecommendationPage';
 import RecommendationsListPage from './pages/recommendations/RecommendationsListPage';
+import FullListPage from './pages/posts_recommendations/fullListPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -45,20 +46,24 @@ function App() {
             exact
             path="/feed"
             render={() => (
-              <PostsListPage
-                message="No results found. Adjust the search keyword or follow a user."
-                filter={`owner__followed__owner__profile=${profile_id}&`}
-              />
+              <>
+                <FullListPage
+                  message="No results found. Adjust the search keyword or follow a user."
+                  filter={`owner__followed__owner__profile=${profile_id}&`}
+                />
+              </>
             )}
           />
           <Route
             exact
             path="/liked"
             render={() => (
-              <PostsListPage
-                message="No results found. Adjust the search keyword or like a post or a recommendation."
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} 
-              />
+              <>
+                <FullListPage
+                  message="No results found. Adjust the search keyword or like a post or a recommendation."
+                  filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_on&`}
+                />
+              </>
             )}
           />
           <Route exact path="/signup" render={() => <SignUpForm />} />
