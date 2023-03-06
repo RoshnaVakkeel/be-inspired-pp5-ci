@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Badge, Col, Container, Form, Row } from "react-bootstrap";
 
@@ -6,8 +6,15 @@ import styles from "../../styles/RecommendationsListPage.module.css";
 import appStyles from "../../App.module.css";
 
 import LeftPanel from "../../components/LeftPanel";
+import Recommendation from "./Recommendation";
 import PopularProfiles from "../profiles/PopularProfiles";
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosReq } from "../../api/axiosDefaults";
+import { fetchMoreData } from '../../utils/utils';
+import { useLocation } from "react-router-dom";
+import Asset from "../../components/Asset";
+import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
 /**
  * Renders Recommendations List - 
  * Shows all the Recommendations if no filters are applied
@@ -15,10 +22,41 @@ import PopularProfiles from "../profiles/PopularProfiles";
  * "Feed" Page: Shows the lists of Recommendations of the users that the logged in user follows 
  * Guidance: Moments walkthrough and codes are adapted according to design
  */
-const RecommendationsListPage = () => {
+function RecommendationsListPage({message, filter = "" }) {
     const [recommendations, setRecommendations] = useState({ results: [] });
+    const [hasLoaded, setHasLoaded] = useState(false);
+    const currentUser = useCurrentUser();
+    const { pathname } = useLocation();
     const [query, setQuery] = useState('');
     const [category, setCategory] = useState(null);
+
+    /**
+    * Fetches recommendations from the API.
+    * Returns result based on search keywords.
+    */
+    useEffect(() => {
+        const fetchRecommendations = async () => {
+            try {
+                const { data } = await axiosReq.get(
+                    `/recommendations/?${filter}search=${query}${category !== null ? `&category=${category}` : ""
+                    }`
+                );
+                setRecommendations(data);
+                setHasLoaded(true);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        setHasLoaded(false);  // to limit the request to API request after 1.2 seconds  
+        const timer = setTimeout(() => {
+            fetchRecommendations();
+        }, 1200);
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [filter, pathname, currentUser, query, category]);
+
 
     return (
         <Container>
@@ -62,6 +100,35 @@ const RecommendationsListPage = () => {
                             </Form.Group>
                         </Form>
                     </Container>
+                    {hasLoaded ? (
+                        <>
+                            {recommendations.results.length ? (
+                                <Container className="p-0">
+                                    <InfiniteScroll
+                                        children={
+                                            recommendations.results.map(recommendation => (
+                                                <Recommendation key={recommendation.id} {...recommendation} setRecommendations={setRecommendations} />
+                                            ))
+                                        }
+                                        dataLength={recommendations.results.length}
+                                        loader={<Asset spinner />}
+                                        hasMore={!!recommendations.next}
+                                        next={() => fetchMoreData(recommendations, setRecommendations)}
+                                    />
+                                </Container>
+                            ) : (
+                                <Container className={appStyles.Content}>
+                                    <h2 className="text-center">No results</h2>
+                                    <Asset src={NoResults} message={message} />
+                                </Container>
+                            )}
+                        </>
+                    ) : (
+                        <Container className={appStyles.Content}>
+                            <Asset spinner />
+                        </Container>
+                    )}
+
       
                 </Col>
 
