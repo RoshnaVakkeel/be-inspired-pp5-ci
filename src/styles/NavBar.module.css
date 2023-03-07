@@ -32,10 +32,22 @@
     color: blue;
 }
 
-@media all and (max-width: 486px) {
+@media all and (max-width: 991px) {
     .NavBarBrand {
         font-size: x-large;
         padding-left: 20px;
     }
+    .NavItems {
+        font-size:medium;
+    }
 }
+
+@media all and (max-width: 468px) {
+    .NavBarBrand {
+        font-size: x-large;
+        padding-left: 10px;
+    }
+
+}
+
 

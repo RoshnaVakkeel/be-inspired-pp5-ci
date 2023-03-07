@@ -51,7 +51,6 @@ const ProfilePasswordChange = () => {
         try {
             await axiosRes.post("/dj-rest-auth/password/change/", userData);
             setShowAlert(true);
-
             setTimeout(function () {
                 history.push("/");
             }, 1500);
