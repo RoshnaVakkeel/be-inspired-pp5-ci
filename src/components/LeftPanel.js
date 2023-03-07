@@ -25,8 +25,14 @@ const LeftPanel = ({ mobile }) => {
                 <Avatar src={currentUser?.profile_image}
                     text=""
                     height={33}
-                />
-                {currentUser?.username}'s Profile
+                /> Hi {currentUser?.username}
+            </Link>
+            <br />
+            <Link
+                className={`${styles.NavLink} p-2`}
+                to={`/profiles/${currentUser?.profile_id}/edit`}
+            >
+                <i className="far fa-plus-square"></i> Profile
             </Link>
             <br />
             <Link
@@ -56,9 +62,9 @@ const LeftPanel = ({ mobile }) => {
         <Container
             className={`${appStyles.Content} ${mobile && styles.CollapsedColumn} mb-3 ${styles.CreatePanel}`}
         >
-            <h4 className='text-center mt-2'>Create and Inspire!</h4>
+            <h4 className='text-center  mt-2'>Create and Inspire!</h4>
             <div><hr></hr></div>
-            <div>
+            <div className='font-weight-bold '>
                 {currentUser ? loggedInIcons : loggedOutIcons}
             </div>
         </Container>
