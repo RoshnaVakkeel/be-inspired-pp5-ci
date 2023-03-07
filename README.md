@@ -126,3 +126,6 @@ This is used to render the layout and styling of the website. The library makes 
 - axios - installed using command `npm install axios`.It manages the calls to the backend database. Simplifies the API requestsand the included interceptors refresh JSON Web Tokens which the site uses.
 - infinite-scroll-component - installed using command ` npm install react-infinite-scroll-component`.
 It is used to enable infinite scrolling on the Posts and Recommendations components and on comments. Infinite scrolling is a standard feature in all social media sites.
+- jwt decode -
+- `npm test`
+- `npm install msw --save-dev`
