@@ -11,6 +11,7 @@ import axios from 'axios';
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import { removeTokenTimestamp } from '../utils/utils';
 
 /**
  * Returns the navigation bar.
@@ -27,18 +28,19 @@ const NavBar = () => {
 
   /**
    * Handles user logout
+   * Removes saved current user
    * Redirects to the Homepage
    */
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
-      setExpanded(false);
       setCurrentUser(null);
+      setExpanded(false);
+      removeTokenTimestamp()
     } catch (err) {
-      console.log(err);
+      //console.log(err)
     }
   };
-
 
   /**
    *  Displays current username with its avatar in the navbar

@@ -12,6 +12,7 @@ import Alert from 'react-bootstrap/Alert';
 import styles from "../../styles/SignInForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { setTokenTimestamp } from '../../utils/utils';
 
 
 /**
@@ -39,6 +40,7 @@ function SignInForm() {
         
         const { data } = await axios.post("/dj-rest-auth/login/", signInData);
         setCurrentUser(data.user);
+        setTokenTimestamp(data);
         console.log(data);
         history.push("/");
 

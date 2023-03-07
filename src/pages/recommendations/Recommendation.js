@@ -101,7 +101,6 @@ const handleDelete = async () => {
     try {
         await axiosRes.delete(`/recommendations/${id}/`);
         setShowAlert(true);
-        
         setTimeout(function () {
             history.goBack();
         }, 1500);
