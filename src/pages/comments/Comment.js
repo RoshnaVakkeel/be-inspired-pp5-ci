@@ -62,7 +62,7 @@ const Comment = (props) => {
   };
 
   /**
-   * Alert Feedback messages upon post delete
+   * Alert Feedback messages upon post/recommendation delete 
    * Credit - https://github.com/aleksandracodes/ci_pp5_snapfood/
    */
   return isDeleted ? (
