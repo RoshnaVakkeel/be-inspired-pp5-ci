@@ -1,0 +1,57 @@
+.LandingImage {
+    height: 390px;
+  }
+  
+ .Button {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  align-self: center;
+  border: 1px solid salmon;
+  padding: 4px 10px;
+  margin: auto;
+  background-image: linear-gradient(rgb(209, 106, 37), orange);
+  text-decoration: none;
+  box-shadow: 0px 1px 4px -2px #333;
+  color: black;
+}
+
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+  background-color: #df2d00 !important;
+}
+
+.Button:hover:active {
+  background-color: #df6000 !important;
+}
+
+.Button:active {
+  background-color: #df6000 !important;
+}
+
+.Button:focus {
+  background-color: #df6000;
+}
+
+  .footer {
+    display: flow-root;
+    margin-top: 20px;
+  }
+  
+  .footer p {
+    margin-bottom: 0;
+    padding-top: 7px;
+  }
+  
+
+  
+  /* Adjust landing page image size on smaller screens */
+  @media all and (max-width: 440px) {
+    .LandingImage {
+      width: 90%;
+      height: 90%;
+    }
+  } 
+  
