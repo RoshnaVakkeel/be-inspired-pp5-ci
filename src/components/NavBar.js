@@ -110,7 +110,6 @@ const NavBar = () => {
         <i className="fas fa-sign-in-alt"></i>
         Sign in
       </NavLink>
-
     </>
   );
 
