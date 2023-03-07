@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import Container from 'react-bootstrap/Container';
 import { Route, Switch } from 'react-router-dom';
 import './api/axiosDefaults';
+import LandingPage from './components/LandingPage';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import PostCreateForm from './pages/posts/PostCreateForm';
@@ -20,6 +21,7 @@ import RecommendationsListPage from './pages/recommendations/RecommendationsList
 import FullListPage from './pages/posts_recommendations/fullListPage';
 import RecommendationEditForm from './pages/recommendations/RecommendationEditForm';
 
+
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -28,6 +30,14 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
+
+      {!currentUser ? (
+        <Switch>
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route render={() => <LandingPage />} />
+        </Switch>
+      ) : (
         <Switch>
           <Route
             exact
@@ -84,9 +94,11 @@ function App() {
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
+      )}
       </Container>
     </div>
   );
 }
+
 
 export default App;

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Recommendation from "./Recommendation";
 import CommentCreateForm from "../comments/CommentCreateForm";
