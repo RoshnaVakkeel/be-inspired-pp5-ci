@@ -17,7 +17,7 @@ const PopularProfiles = ({ mobile }) => {
       {popularProfiles.results.length ? (
         <>
           <h4 className='text-center mt-2'>Active Inspirers</h4>
-          <div><hr></hr></div>
+          <div><hr/></div>
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 3).map((profile) => (
