@@ -20,24 +20,36 @@ const LandingPage = () => {
                             className={styles.LandingImage}
                             alt="Person holding lantern at dawn"
                         />
+                        <Container>
+                            <p>
+                                {' '}
+                               <strong> “As we work to create light for others, we naturally light our own way." </strong><br/>
+                                --Mary Anne Radmacher{' '}
+                            </p>
+                        </Container>
                     </Col>
                     <Col lg={6} sm={12}>
-                        <div className="text-center mt-5 " >
-                            <h3 className="mb-4">Welcome to "Be Inspired" <br/> Your very own inspiration sharing platform</h3>
+                        <div className="text-center mt-3" >
+                            <h4 className="mb-3">Welcome to "Be Inspired" <br /> Your very own inspiration sharing platform</h4>
 
-                            <h4> If you are looking for an inspiration from around or wish to inspire others.
-                                This is the right place for you!!
-                            </h4>
-                            <p>Join our community! Start an inspirational journey!!</p>
+                            <h5> If you are looking for an inspiration or you wish to inspire others.
+                                Then this is the right place for you!!
+                            </h5>
+                            <p>Here one can share a post and also recommend people what inspires them to
+                                embrace positivity in their lives.</p>
+                            <h6>Our easy to use features allow you to access all the posts (Homepage), Recommendations,
+                                follow the inspirers, see their top posts in your feed and save liked posts in liked page.
+                                You can be a creator too and be the light that </h6>
+                            <p><strong>Feeling Inspired? Come join our community! Start your inspirational journey!!</strong></p>
                             <Link to="/signup">
                                 <Button
-                                    className={`${styles.Button} mx-3 mb-3`}
+                                    className={`${styles.Button} mx-3 mb-2`}
                                 >
-                                    New? Come Join us!
+                                    New here? Join us!
                                 </Button>
                             </Link>
                             <Link to="/Signin">
-                                <Button className={`${styles.Button} mb-3`}>
+                                <Button className={`${styles.Button} mb-2`}>
                                     Member? Sign In and Start!
                                 </Button>
                             </Link>
@@ -45,7 +57,7 @@ const LandingPage = () => {
                     </Col>
                 </Row>
                 <Container>
-                    <footer className={styles.footer}>
+                    <footer className={`${styles.footer}` }>
                         <div className="text-center">
                             <p>For Education Purposes only! || Creator: Roshna Vakkeel</p>
                             <a
