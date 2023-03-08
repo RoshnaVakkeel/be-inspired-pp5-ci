@@ -186,14 +186,6 @@ const PostEditForm = () => {
                                 <Image className={appStyles.Image}
                                     src={image} rounded />
                             </figure>
-                            <div>
-                                <Form.Label
-                                    className={`${btnStyles.Button} btn`}
-                                    htmlFor="image-upload"
-                                >
-                                    Update image
-                                </Form.Label>
-                            </div>
                         </>
                     ) : (
                         <Form.Label htmlFor="image-upload">
@@ -218,13 +210,13 @@ const PostEditForm = () => {
                     </Alert>
                 ))}
 
-                <Button className={`${btnStyles.Button} ml-3`}
+                <Button className={`${btnStyles.Button} m-1`}
                     type="submit">
                     Update
                 </Button>
                 <Button
                     onClick={() => history.goBack()}
-                    className={`${btnStyles.Button}`}
+                    className={`${btnStyles.Button} m-1`}
                     type="submit"
                 >
                     Cancel

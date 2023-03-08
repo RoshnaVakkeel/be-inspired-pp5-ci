@@ -11,7 +11,7 @@ import Upload from "../../assets/upload.png";
 import { useCurrentUser, useSetCurrentUser, } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import createFormStyles from "../../styles/PostCreateForm.module.css";
+import createFormStyles from "../../styles/ProfileCreateForm.module.css";
 
 const ProfileEditForm = () => {
     const currentUser = useCurrentUser();
@@ -166,14 +166,7 @@ const ProfileEditForm = () => {
                                 <Image className={appStyles.Image}
                                     src={image} rounded />
                             </figure>
-                            <div>
-                                <Form.Label
-                                    className={`${btnStyles.Button} btn`}
-                                    htmlFor="image-upload"
-                                >
-                                    Update image
-                                </Form.Label>
-                            </div>
+
                         </>
                     ) : (
                         <Form.Label htmlFor="image-upload">
@@ -205,13 +198,14 @@ const ProfileEditForm = () => {
                     </Alert>
                 ))}
 
-                <Button className={`${btnStyles.Button} ml-3`}
+                <Button 
+                className={`${btnStyles.Button} m-1`}
                     type="submit">
                     Update
                 </Button>
                 <Button
                     onClick={() => history.goBack()}
-                    className={`${btnStyles.Button}`}
+                    className={`${btnStyles.Button} m-1`}
                     type="submit"
                 >
                     Cancel

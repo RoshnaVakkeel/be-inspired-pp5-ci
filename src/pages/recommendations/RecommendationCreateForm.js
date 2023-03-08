@@ -173,7 +173,7 @@ const RecommendationCreateForm = () => {
                         {message}
                     </Alert>
                 ))}
-                
+
                 <Form.Group>
                     <Form.Label>Tell more on why do you recommend it..</Form.Label>
                     <Form.Control
@@ -198,14 +198,6 @@ const RecommendationCreateForm = () => {
                                 <Image className={appStyles.Image}
                                     src={image} rounded />
                             </figure>
-                            <div>
-                                <Form.Label
-                                    className={`${btnStyles.Button} btn`}
-                                    htmlFor="image-upload"
-                                >
-                                    Update image
-                                </Form.Label>
-                            </div>
                         </>
                     ) : (
                         <Form.Label htmlFor="image-upload">
@@ -230,13 +222,13 @@ const RecommendationCreateForm = () => {
                     </Alert>
                 ))}
 
-                <Button className={`${btnStyles.Button} ml-3`}
+                <Button className={`${btnStyles.Button} m-1`}
                     type="submit">
                     Submit
                 </Button>
                 <Button
                     onClick={() => history.goBack()}
-                    className={`${btnStyles.Button}`}
+                    className={`${btnStyles.Button} m-1`}
                     type="submit"
                 >
                     Cancel

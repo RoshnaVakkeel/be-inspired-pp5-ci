@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Alert from 'react-bootstrap/Alert';
 import Image from "react-bootstrap/Image";
 
-import { useHistory } from "react-router-dom"; 
+import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Asset from "../../components/Asset";
@@ -154,17 +154,9 @@ const PostCreateForm = () => {
                     {image ? (
                         <>
                             <figure>
-                                <Image className={appStyles.Image} 
-                                src={image} rounded />
+                                <Image className={appStyles.Image}
+                                    src={image} rounded />
                             </figure>
-                            <div>
-                                <Form.Label
-                                    className={`${btnStyles.Button} btn`}
-                                    htmlFor="image-upload"
-                                >
-                                    Update image
-                                </Form.Label>
-                            </div>
                         </>
                     ) : (
                         <Form.Label htmlFor="image-upload">
@@ -189,13 +181,14 @@ const PostCreateForm = () => {
                     </Alert>
                 ))}
 
-                <Button className={`${btnStyles.Button} ml-3`}
+                <Button
+                    className={`${btnStyles.Button} m-1`}
                     type="submit">
                     Submit
                 </Button>
                 <Button
                     onClick={() => history.goBack()}
-                    className={`${btnStyles.Button}`}
+                    className={`${btnStyles.Button} m-1`}
                     type="submit"
                 >
                     Cancel
