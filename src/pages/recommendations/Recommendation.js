@@ -60,7 +60,7 @@ const handleLike = async () => {
             }),
         }));
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };
 
@@ -81,7 +81,7 @@ const handleUnlike = async () => {
             }),
         }));
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };
 
@@ -105,7 +105,7 @@ const handleDelete = async () => {
             history.goBack();
         }, 1500);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };
 

@@ -53,7 +53,7 @@ const RecommendationEditForm = () => {
                     ? setRecommendationData({ title, category, price_category, description, reason, image})
                     : history.push("/");
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
 

@@ -55,7 +55,7 @@ const ProfilePasswordChange = () => {
                 history.push("/");
             }, 1500);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             setErrors(err.response?.data);
         }
     };

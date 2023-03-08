@@ -41,7 +41,7 @@ const RecommendationPage = () => {
                 setComments(comments);
                 // console.log(recommendation);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
 

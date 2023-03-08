@@ -51,7 +51,7 @@ const PostEditForm = () => {
                     ? setPostData({ title, category, description, image })
                     : history.push("/");
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
 

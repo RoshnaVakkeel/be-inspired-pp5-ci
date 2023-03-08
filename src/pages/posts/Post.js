@@ -58,7 +58,7 @@ const Post = (props) => {
                 }),
             }));
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -79,7 +79,7 @@ const Post = (props) => {
                 }),
             }));
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -104,7 +104,7 @@ const Post = (props) => {
                 history.goBack();
             }, 1500);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 

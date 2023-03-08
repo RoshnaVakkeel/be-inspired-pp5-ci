@@ -75,7 +75,7 @@ const RecommendationCreateForm = () => {
             const { data } = await axiosReq.post("/recommendations/", formData);
             history.push(`/recommendations/${data.id}`);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

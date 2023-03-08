@@ -44,7 +44,7 @@ function RecommendationsListPage({message, filter = "" }) {
                 setRecommendations(data);
                 setHasLoaded(true);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
 
