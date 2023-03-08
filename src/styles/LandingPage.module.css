@@ -1,5 +1,5 @@
 .LandingImage {
-    height: 320px;
+    height: 310px;
   }
   
  .Button {
@@ -45,13 +45,12 @@
     padding-top: 7px;
   }
   
-
   
   /* Adjust landing page image size on smaller screens */
   @media all and (max-width: 440px) {
     .LandingImage {
-      width: 90%;
-      height: 90%;
+      width: 200px;
+      height: 250px;
     }
   } 
   
