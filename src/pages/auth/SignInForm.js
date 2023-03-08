@@ -95,7 +95,7 @@ function SignInForm() {
                 ))}
 
                 <Button
-                    className={`${btnStyles.Button} ${btnStyles.Wide}`}
+                    className={`${btnStyles.Button} ${btnStyles.Wide} p-2`}
                     type="submit">
                     Sign In
                 </Button>
