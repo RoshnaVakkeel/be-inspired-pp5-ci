@@ -127,6 +127,7 @@ const ProfileEditForm = () => {
                         onChange={handleChange}
                         aria-label="age group"
                     >
+                        <option value="Select agegroup">Select Age Group </option>
                         <option value="Teenager (10 - 18)">Teenager </option>
                         <option value="Young Adult (19 - 25)">Young Adult</option>
                         <option value="Adult (26 - 40)">Adult</option>
@@ -206,7 +207,6 @@ const ProfileEditForm = () => {
                 <Button
                     onClick={() => history.goBack()}
                     className={`${btnStyles.Button} m-1`}
-                    type="submit"
                 >
                     Cancel
                 </Button>

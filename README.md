@@ -1,4 +1,4 @@
-# Welcome to **[Be Inspired (PP5 CI)]()**
+# Welcome to **[Be Inspired (PP5 CI)](https://be-inspired-pp5-ci.herokuapp.com/)**
 
 ## PERSPECTIVE
 To be inspired and to spread positivity around..
@@ -59,7 +59,10 @@ To be inspired and to spread positivity around..
 - [Acknowledgements](<#acknowledgements>)
 
 
-
+- [User Experience (UX)](#user-experience-ux)
+	- [Site Goals](#site-goals)
+	- [User Personas](#user-personas)
+	- [Scope](#scope)
 
 ## Agile Methodology
 

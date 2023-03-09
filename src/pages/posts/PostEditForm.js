@@ -217,7 +217,6 @@ const PostEditForm = () => {
                 <Button
                     onClick={() => history.goBack()}
                     className={`${btnStyles.Button} m-1`}
-                    type="submit"
                 >
                     Cancel
                 </Button>
