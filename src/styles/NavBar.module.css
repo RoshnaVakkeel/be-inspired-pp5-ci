@@ -58,4 +58,8 @@
     .NavBarBrand img {
         width: 30%;
     }
+    .NavItems {
+        font-size: small;
+        padding-left: 0px;
+    }
 }

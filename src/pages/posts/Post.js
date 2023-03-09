@@ -115,12 +115,12 @@ const Post = (props) => {
                 <FeedbackMsg variant="info" message="Your post has been successfully deleted.." />
             )}
             <Card.Body>
-                <Media className="align-items-center justify-content-between">
+                <Media className={`text-center d-flex align-items-center justify-content-between ${styles.Name}`}>
                     <Link to={`/profiles/${profile_id}`}>
                         <Avatar src={profile_image} height={55} />
                         {owner}
                     </Link>
-                    <div className="d-flex align-items-center">
+                    <div className={`text-center d-flex align-items-center ${styles.Date}`}>
                         <span>{updated_on}</span>
                         {is_owner && postPage && <DropdownMenu
                             handleEdit={handleEdit}
@@ -132,8 +132,8 @@ const Post = (props) => {
                 <Card.Img src={image} alt={title} />
             </Link>
             <Card.Body>
-                {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {category && <Card.Title className="text-center">Category: {category}</Card.Title>}
+                {title && <Card.Title className={`text-center ${styles.Title}`}>{title}</Card.Title>}
+                {category && <Card.Title className={`text-center ${styles.Text}`}>Category: {category}</Card.Title>}
                 {description && <Card.Text>{description}</Card.Text>}
                 <div>
                     {is_owner ? (

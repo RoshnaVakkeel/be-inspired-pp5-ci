@@ -5,7 +5,15 @@
     margin-bottom: 16px;
     text-align: center;
   }
-
+  
+  .Title {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .Text {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
   .Recommendation figure,
   h5 {
     margin: 0 0;
@@ -21,4 +29,22 @@
   
   .HeartOutline:hover {
     color: #f85032;
+  }
+
+  @media all and (max-width: 312px) {
+    .Title {
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+    .Text {
+      font-size: 1em;
+      font-weight: 700;
+    }
+    .Date{
+      font-size: 0.8em;
+    }
+    .Name{
+      font-size: 1em;
+      font-weight: 600;
+    }
   }
