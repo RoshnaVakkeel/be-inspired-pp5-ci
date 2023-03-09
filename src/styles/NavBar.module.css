@@ -1,15 +1,14 @@
 .NavBar {
     background-color: #ffb449;
     border: 1px solid #dadadf;
-  }
-  
+}
+
 
 .NavBarBrand {
     font-size: xx-large;
     font-style: italic;
     text-transform: uppercase;
     font-weight: 700;
-
 }
 
 .NavItems {
@@ -37,17 +36,27 @@
         font-size: x-large;
         padding-left: 20px;
     }
+
     .NavItems {
-        font-size:medium;
+        font-size: medium;
     }
 }
 
 @media all and (max-width: 468px) {
     .NavBarBrand {
         font-size: x-large;
-        padding-left: 10px;
+        padding-left: 0px;
     }
+
 
 }
 
+@media all and (max-width: 312px) {
+    .NavBarBrand {
+        font-size: 1.2em;
+    }
+    .NavBarBrand img {
+        width: 30%;
+    }
 
+}

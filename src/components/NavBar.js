@@ -12,6 +12,7 @@ import axios from 'axios';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 import { removeTokenTimestamp } from '../utils/utils';
+import logo from "../assets/be_inspired.png";
 
 /**
  * Returns the navigation bar.
@@ -124,7 +125,7 @@ const NavBar = () => {
       <Container className="p-2">
         <NavLink to="/">
           <Navbar.Brand className={styles.NavBarBrand}>
-            "Be Inspired"
+          <img src={logo} alt="Be Inspired logo" height="50" width="60" /> Be Inspired
           </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle
