@@ -20,6 +20,7 @@ import RecommendationPage from './pages/recommendations/RecommendationPage';
 import RecommendationsListPage from './pages/recommendations/RecommendationsListPage';
 import FullListPage from './pages/posts_recommendations/fullListPage';
 import RecommendationEditForm from './pages/recommendations/RecommendationEditForm';
+import PageNotFound from './components/PageNotFound';
 
 
 function App() {
@@ -91,7 +92,7 @@ function App() {
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <ProfilePasswordChange />} />
 
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <PageNotFound />} />
         </Switch>
       )}
       </Container>
