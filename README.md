@@ -60,14 +60,194 @@ To be inspired and to spread positivity around..
 
 
 ## User Experience (UX)
+
 ### Site Goals
+- "Be Inspired" is a social media App mainly meant for everyone who is looking to socialize and share their positive and inspirational thoughts with others.
+- Basic goal is to uplift morale and provide users with a happy mood.
+- The main motto is - "be the light that lightens up the way for someone else".
+- To enable users to share photos, their inspiration and recommendations
+- To enable users to network using this social media platform
+- All users who sign up and sign in, can access all the features of the website and can create, edit, and delete their posts/recommendations.
+- People can post about their inspirations and also can recommend others about the inspirations that helped them.
+
 ### User Personas
+As mentioned in Site Goals, the users expected to be visiting this website regularly are going anyone seekingg positive motivation or inspiration to tackle/take on challenges in their lives. I created 4 fictional characters which represents the target users. The user personas with their needs, goals and frustrations are enlisted, which helped me design this website with a point of view of distinct users.
+The link to User Personas can be found [here](docs/agile/user_personas.pdf).
+
 ### Scope
 
+- An attractive and intuitive UX experience: 
+	1. Website title that gives an idea what is it about
+	2. Hero-image with information on the site's purpose
+	3. Responsive design across all devices
+	4. A clear and straightforward layout
+	5. Footer fixed at the bottom with links to social media only in landing page
+	6. Implement alert messages to provide users with more feedback after they take certain actions
+	7. Fast application that is easy to use
+	8. Show user's profile image in the profile section
+
+- An easy navigation for the user through all the pages and features
+	1. Navigation Menu with easy access to all links.
+	2. Easy Sign Up/ Sign In/ Sign Out functionality visible.
+	3. Posts list with infinite scroll feature
+	4. Landing page with guidance to sign up/sign in and how to start using the websites features
+	6. Search field to enable user to search a keyword
+	7. Category filter for easy sorting of posts / recommendations
+	8. User's Feed page with posts and recommendations from their favourite users
+	9. Liked page to enable users to save the posts they liked
+
+- Posts and Recommendation Features
+	1. Latest entries feature on top or first
+	2. On a click they can view post/ recommendation details
+	3. Ability to comment on posts / recommendations
+	4. Create, Edit and Delete posts and recommendations
+
+- Profiles Features
+	1. Shows username and Avatar, enlists posts and recommendations made by the user
+	2. Shows information on Followers and other users following
+	3. Password change option
+	4. Profile edit option
+
 ## Agile Methodology
+Throughout this project, an agile approach was taken in order to develop the website  Each activity was broken down into  manageable actions from initially creating 4 Epics, which were then broken down into smaller User Stories. Each of the user stories then had different acceptance criteria. The status, comments and details of each Epic along with the associated User Stories can be found in the kanban board linked [here](https://github.com/users/RoshnaVakkeel/projects/3). This made the overall project much more manageable to build. 
+
+## Epics and User Stories
+8 Epics were created which were further developed into 37 User Stories. The initial conception was done using google sheets. The link can be found [here](agile/epics_and_user_stories_list_be_inspired.xlsx).
+
+### [Website UI](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/1)
+
+**Epic Goals for End User**
+
+1. A landing page that describes the purpose of the website
+2. User guidance to get started 
+3. An easy to use navigation 
+4. Easy register/sign up and sign in options
+5. Home page with posts list with infinite scroll  visible to all
+
+**Related User Stories**
+1. [USER STORY US01: Intuitive Landing Page](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/2)
+2. [USER STORY US02: User Guidance to get started](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/3)
+3. [USER STORY US03: Easy navigation features](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/4)
+4. [USER STORY US04: User Registration/Sign Up Link](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/5)
+5. [USER STORY US05:   Home page with posts list with infinite scroll  visible to all](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/6)
+
+
+### [Authentication](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/8)
+
+**Epic Goals for End User**
+
+Access to
+1. Sign Up and Sign In Features
+2.  various features on signing in 
+3. Sign Out option
+4. Access tokens
+
+**Related User Stories**
+[US06](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/7)
+[US07](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/9)
+[US08](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/10)
+[US09](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/11)
+
+
+### [Main page Layout](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/12)
+
+**Epic Goals for End User**
+
+This layout will feature:
+1. Posts section
+2. Creation Section
+3. Search Bar
+4. Category Filters
+5. User Following Section
+
+**Related User Stories**
+US10- US16
+[US10](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/13)
+[US11](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/14)
+[US12](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/15)
+[US14](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/16)
+[US15](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/35)
+[US16](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/17)
+
+### [Post Management](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/18)
+
+**Epic Goals for End User**
+
+1. Post visibility
+2. Post Details visibility
+3. Post Creation Option
+4. Post update Option
+5. Post Delete Option
+
+**Related User Stories**
+[US17](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/19)
+[US18](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/20)
+[US19](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/21)
+[US20](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/22)
+[US21](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/23)
+
+### [Recommendation Management](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/24)
+**Epic Goals for End User**
+
+1. Recommendation visibility
+2. Recommendation Details visibility
+3. Recommendation Creation Option
+4. Recommendation update Option
+5. Recommendation Delete Option
+
+**Related User Stories**
+[US22](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/25)
+[US23](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/26)
+[US24](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/27)
+[US25](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/28)
+[US26](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/29)
+
+### [Comment Management](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/30)
+**Epic Goals for End User**
+
+1. Comments visibility
+2. Comments Creation Option
+3. Comments update Option
+4. Comments Delete Option
+
+**Related User Stories**
+[US27](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/31)
+[US28](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/32)
+[US29](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/33)
+[US30](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/34)
+
+
+### [Likes Management](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/36)
+
+**Epic Goals for End User**
+
+1. Like visibility
+2. Like a post/recommendation
+3. Unlike a post/recommendation
+
+**Related User Stories**
+[US31](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/37)
+[US32](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/38)
+[US33](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/39)
+
+### [Profile Management](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/40)
+
+**Epic Goals for End User**
+
+1. Profile visibility
+2. Profile creation option
+3.  Profile update option
+4. Profile popularity assessment
+
+**Related User Stories**
+[US34](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/41)
+[US35](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/42)
+[US36](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/43)
+[US37](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/44)
+
 
 ## Acceptance Criteria
-For all the User Stories, Acceptance Criteria were enlisted. The purpose of this was to provide a reference point for the developmental steps. I made sure to cross-check that all the required steps intended was implemented. It also helped with Testing to make sure that all the necessary aspects and features were covered. The acceptance criteria is described on the column next to the user stories (column H) [here]().
+For all the User Stories, Acceptance Criteria were enlisted. The purpose of this was to provide a reference point for the developmental steps. I made sure to cross-check that all the required steps intended was implemented. It also helped with Testing to make sure that all the necessary aspects and features were covered. The acceptance criteria is described on the column next to the user stories (column H) [here](docs/agile/epics_and_user_stories_list_be_inspired.xlsx).
 
 ### Tasks
 The tasks for the website development process was closely followed as mentioned in CI's Advanced Frontend React module "I Moments" walkthrough project. The task is generally the developers step towards preparing the app.
@@ -76,7 +256,7 @@ The tasks that I have followed during the development phase were carried out in 
 **Before Project Inception**
 
 - Design Entity Relationship Diagram 
-- Set up and create  Back End API. For this backend was built using the Django Rest API framework. All information a=can be found in [BE INSPIRED - DRF API](https://github.com/RoshnaVakkeel/be-inspired-drf-api)
+- Set up and create  Back End API. For this backend was built using the Django Rest API framework. All information can be found in [BE INSPIRED - DRF API](https://github.com/RoshnaVakkeel/be-inspired-drf-api)
 
 - Create Frontend Repository in GitHub
 - Create Project, Epics, User Stories and prepare Kanban Board
@@ -84,7 +264,6 @@ The tasks that I have followed during the development phase were carried out in 
 **Creation of Project in GitPod**
 
 - Set up ReactJS project
-
 
 ### User Story Management
 
