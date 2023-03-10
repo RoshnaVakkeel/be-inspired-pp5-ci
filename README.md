@@ -35,7 +35,6 @@ To be inspired and to spread positivity around..
 	- [Typography](<#typography>)
 	- [Imagery](<#imagery>)
 	- [Wireframes](<#wireframes>)
-    - [Database Schema](<#database-schema>)
 - [Features](<#features>)
 
 - [Technologies](<#technologies>)
@@ -279,6 +278,35 @@ The project was divided mainly into three main sprints spanning a week.
 	- Pull and show data from be-inspired-drf-api
 
 - **Sprint 3** was to set up Frontend ReactJS app pages, styling, functions and fixing bugs and testing.
+
+## Design
+
+### Colours
+- The colour scheme has considered based on easy accessibility for all. 
+- Complimentarity was key feature in color selection, to give it a pleasant feel for all age groups.
+- The colors have been rendered differently for posts and recommendations, so that user can easily distinguish between them.
+
+The palette was generated with inspiration from palettes provided by [Coolers](https://coolors.co/). Simple combinaion of pastel colours were checked and selected. The color palette used is as shown below.
+![Color palette](docs/wireframes/be_inspired_color_palette.png)
+
+### Typography
+
+Fonts were imported using Google Fonts. Font "Alegreya Sans" was used throughout with a backup of sans-serif. It was chosen for easy readability for users. 
+
+### Imagery
+
+The imagery on the website has been seleced according to the post requirement.
+Many images were taken from [Pexels](https://www.pexels.com/).
+
+### Wireframes
+The wireframes were generated at the start of the project suing Balsamiq. After referring to different bootstrap templates, pages were divided into the different relevant sections. 
+The finished website closely follows wireframes as the designs were adapted during development but overall structure was kept constant. For eg. an additional 'Liked' page was introduced in order to allo the user to save the posts they liked. 
+
+The wireframes can be found in these links:<br>
+[Wireframes for Desktop](docs/wireframes/wireframes_be_inspired_desktop.pdf)<br>
+[Wireframes for Tablet](docs/wireframes/wireframes_be_inspired_tablet.pdf)<br>
+[Wireframes for Mobile](docs/wireframes/wireframes_be_inspired_mobile.pdf)
+
 
 ## Technologies
 
