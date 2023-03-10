@@ -59,10 +59,10 @@ To be inspired and to spread positivity around..
 - [Acknowledgements](<#acknowledgements>)
 
 
-- [User Experience (UX)](#user-experience-ux)
-	- [Site Goals](#site-goals)
-	- [User Personas](#user-personas)
-	- [Scope](#scope)
+## User Experience (UX)
+### Site Goals
+### User Personas
+### Scope
 
 ## Agile Methodology
 
