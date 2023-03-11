@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import { Image, Button } from "react-bootstrap";
-
+import { Col, Container, Row, Image, Button } from "react-bootstrap";
 import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";

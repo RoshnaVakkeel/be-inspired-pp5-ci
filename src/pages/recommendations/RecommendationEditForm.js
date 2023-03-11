@@ -1,19 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Alert from 'react-bootstrap/Alert';
-import Image from "react-bootstrap/Image";
+import React, { useEffect, useRef, useState } from 'react';
+import { Alert, Form, Container, Button, Image } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
 
-import Asset from "../../components/Asset";
-import Upload from "../../assets/upload.png";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import createFormStyles from "../../styles/PostCreateForm.module.css";
-import { useParams } from "react-router-dom";
+import Asset from '../../components/Asset';
+import Upload from '../../assets/upload.png';
+import appStyles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
+import createFormStyles from '../../styles/PostCreateForm.module.css';
+
 
 
 /**

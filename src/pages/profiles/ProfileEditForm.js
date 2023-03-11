@@ -1,17 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Image from "react-bootstrap/Image";
-import { useHistory, useParams, } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
-import Asset from "../../components/Asset";
-import Upload from "../../assets/upload.png";
-import { useCurrentUser, useSetCurrentUser, } from "../../contexts/CurrentUserContext";
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-import createFormStyles from "../../styles/ProfileCreateForm.module.css";
+import React, { useEffect, useRef, useState } from 'react';
+import {Container, Form, Button, Alert, Image} from 'react-bootstrap';
+
+import { useHistory, useParams, } from 'react-router-dom';
+import { axiosReq } from '../../api/axiosDefaults';
+import Asset from '../../components/Asset';
+import Upload from '../../assets/upload.png';
+import { useCurrentUser, useSetCurrentUser, } from '../../contexts/CurrentUserContext';
+import btnStyles from '../../styles/Button.module.css';
+import appStyles from '../../App.module.css';
+import createFormStyles from '../../styles/ProfileCreateForm.module.css';
 
 const ProfileEditForm = () => {
     const currentUser = useCurrentUser();

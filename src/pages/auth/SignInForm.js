@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom';
 
+import {Form, Button, Container, Alert} from 'react-bootstrap';
 
-import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Alert from 'react-bootstrap/Alert';
-
-import styles from "../../styles/SignInForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from '../../styles/SignInForm.module.css';
+import btnStyles from '../../styles/Button.module.css';
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { setTokenTimestamp } from '../../utils/utils';
 
 

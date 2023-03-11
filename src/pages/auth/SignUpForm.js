@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from "react-router-dom";
-import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Alert from 'react-bootstrap/Alert';
-import styles from "../../styles/SignUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import { Link, useHistory } from 'react-router-dom';
+import {Form, Button, Container, Alert} from 'react-bootstrap';
+
+import styles from '../../styles/SignUpForm.module.css';
+import btnStyles from '../../styles/Button.module.css';
+
 import axios from 'axios';
 
 const SignUpForm = () => {

@@ -1,23 +1,21 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import {Container, Row, Col} from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-import { useParams } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import Recommendation from "./Recommendation";
-import CommentCreateForm from "../comments/CommentCreateForm";
-import Comment from "../comments/Comment";
+import { axiosReq } from '../../api/axiosDefaults';
+import Recommendation from './Recommendation';
+import CommentCreateForm from '../comments/CommentCreateForm';
+import Comment from '../comments/Comment';
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import appStyles from "../../App.module.css";
+import LeftPanel from '../../components/LeftPanel';
+import PopularProfiles from '../profiles/PopularProfiles';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { fetchMoreData } from '../../utils/utils';
+import Asset from '../../components/Asset';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-import LeftPanel from "../../components/LeftPanel";
-import PopularProfiles from "../profiles/PopularProfiles";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { fetchMoreData } from "../../utils/utils";
-import Asset from "../../components/Asset";
-import InfiniteScroll from "react-infinite-scroll-component";
+import appStyles from '../../App.module.css';
 
 /**
  * Renders the RecommendationPage, detailed page of a selected Recommendation.
