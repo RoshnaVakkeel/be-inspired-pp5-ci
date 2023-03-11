@@ -36,9 +36,10 @@ To be inspired and to spread positivity around..
 	- [Imagery](<#imagery>)
 	- [Wireframes](<#wireframes>)
 - [Features](<#features>)
-
+- [Components](<#components>)
 - [Technologies](<#technologies>)
 	- [Languages Used](<#languages-used>)
+	- [Tools](<tools>)
 	- [Frameworks, Libraries and Programs](<#frameworks-libraries-and-programs>)
 - [Production](#production)
 	- [React](<#react>)
@@ -46,7 +47,7 @@ To be inspired and to spread positivity around..
 	- [User Story Testing](<#user-story-testing>)
 	- [Testing Technologies](<#testing-technologies>)
 		- [Manual Testing](<#manual-testing>)
-			- [Validation](<#validation>)
+		- [Validation](<#validation>)
 - [Issues and Fixes](<#issues-and-fixes>)
 - [Deployment](<#deployment>)
 	- [Heroku](<#heroku>)
@@ -107,11 +108,13 @@ The link to User Personas can be found [here](docs/agile/user_personas.pdf).
 	3. Password change option
 	4. Profile edit option
 
+[Back to top ⇧](#contents)
+
 ## Agile Methodology
 Throughout this project, an agile approach was taken in order to develop the website  Each activity was broken down into  manageable actions from initially creating 4 Epics, which were then broken down into smaller User Stories. Each of the user stories then had different acceptance criteria. The status, comments and details of each Epic along with the associated User Stories can be found in the kanban board linked [here](https://github.com/users/RoshnaVakkeel/projects/3). This made the overall project much more manageable to build. 
 
 ## Epics and User Stories
-8 Epics were created which were further developed into 37 User Stories. The initial conception was done using google sheets. The link can be found [here](agile/epics_and_user_stories_list_be_inspired.xlsx).
+8 Epics were created which were further developed into 37 User Stories. The initial conception was done using google sheets. The link can be found [here](docs/agile/epics_and_user_stories_list_be_inspired.xlsx).
 
 ### [Website UI](https://github.com/RoshnaVakkeel/be-inspired-pp5-ci/issues/1)
 
@@ -279,6 +282,8 @@ The project was divided mainly into three main sprints spanning a week.
 
 - **Sprint 3** was to set up Frontend ReactJS app pages, styling, functions and fixing bugs and testing.
 
+[Back to top ⇧](#contents)
+
 ## Design
 
 ### Colours
@@ -307,6 +312,21 @@ The wireframes can be found in these links:<br>
 [Wireframes for Tablet](docs/wireframes/wireframes_be_inspired_tablet.pdf)<br>
 [Wireframes for Mobile](docs/wireframes/wireframes_be_inspired_mobile.pdf)
 
+[Back to top ⇧](#contents)
+
+## Features
+
+## Components
+A number of the components created are reusable and were used across the website in multiple pages and sections.
+
+- `<Asset />` - Asset.js - renders a loading spinner. It is utilized in several places across the site, including showing a loading spinner where API calls are made.
+- `<Avatar />` - Avatar.js - displays a user's profile image. It is used in the Create Panel along with the Username. Passed props allow for setting image source and size and adjust image dimensions depending on where the component is rendered.
+- `<DropdownMenu />` - DropdownMenu.js - reusable component, used to render the dropdown menu which allows user to edit or delete their own posts/recommendations or comments, and also edit their profile or change profile password. provides a dropdown menu with some additional actions a user can take, such as editing and deleting. 
+- `<FeedbackMsg />` - Feedbackmsg.js- component to display feedback messages to the user upon deleting comments, post, and recommendation.
+- `<LandingPage />` - LandingPage.js - specific component for displaying a landing page for new / not logged-in users, which contains links to sign up and Sign in, in addition to the navbar.
+- `<NavBar />` - NavBar.js-  reusable component with the content depending on the login status of the user. For logged in user it shows Home, Recommendations, Feed and Liked and Sign Out Nav items. For those who are not logged in, it displays icon links to sign up or sign in. The component is used on each page of the app.
+- `<PageNotFound />` - PageNotFound.js - specific component to display 404 error message for the url which does not exist.
+- `<PopularProfiles />` - PopularProfiles.js - reusable component showing most followed profiles in the app named as "Active Inspirers". The component displays user avatar, name and follow/unfollow button.
 
 ## Technologies
 
@@ -316,13 +336,37 @@ The wireframes can be found in these links:<br>
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 - [React JSX](https://reactjs.org/docs/introducing-jsx.html)
 
+### Tools
+
+- [Balsamiq](https://balsamiq.com/)- to create the wireframes for the project
+- [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/) - for debugging of the code and checking site responsiveness
+- [LICEcap](https://www.cockos.com/licecap/) - to generate gif files for testing all the features of the app
+- [Cloudinary](https://cloudinary.com/) - to store static files
+- [Coolors](https://coolors.co/?home) - for color palette
+- [Favicon.io](https://favicon.io) - to generate the site favicon
+- [Font Awesome](https://fontawesome.com/) - Icons from Font Awesome, used in NavBar and create buttons, like and comment icons
+- [Google Fonts](https://fonts.google.com/) - import font
+- [Git](https://git-scm.com/) - for version control within VSCode to push the code to GitHub
+- [GitHub](https://github.com/) - for remote repository to store project code
+- [Gitpod](https://gitpod.io) - to host a virtual workspace
+- Validation:
+  - [WC3 Validator](https://validator.w3.org/) was used to validate the html
+  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css
+  - [ESLint](https://eslint.org/) used to validate JSX code
+
 ### Frameworks, Libraries and Programs
 
 **Frameworks and Libraries **
 - [React Bootstrap4](https://react-bootstrap-v4.netlify.app/) - for styling the site and site responsiveness across various devices
 - [ReactJS](https://reactjs.org/) - to build the functionality of the site
 - [Font Awesome](https://fontawesome.com/) - to add various icons to the site
+- [Axios](https://axios-http.com/docs/intro) - used for promise-based HTTP. axios was used to send API requests from the React project to the be_inspired_drf_api and avoid any CORS errors when sending cookies.
+- [JWT](https://jwt.io/) - library to decode out JSON Web token. JWT prevents unauthenticated user from making extra network requests to refresh their access token. It is also used to remove the timestamp from the browser when the user refreshes token expires or the user logs out.
+- [Popper](https://popper.js.org/) - a 3rd party library used by React-Bootstrap to make sure the dropdown menus position is fixed on all browsers.
+- [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) - to enable component to load content (posts, recommendations and comments) automatically as the user scrolls towards the bottom of the page without having to jump to next/previous page.
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start) - used for dynamic routing. This library enables the navigation among views of various components and control what the user can see depending on the URL they have accessed in the browser.
 
+[Back to top ⇧](#contents)
 
 ## Production
 
@@ -336,6 +380,23 @@ This is used to render the layout and styling of the website. The library makes 
 - axios - installed using command `npm install axios`.It manages the calls to the backend database. Simplifies the API requestsand the included interceptors refresh JSON Web Tokens which the site uses.
 - infinite-scroll-component - installed using command ` npm install react-infinite-scroll-component`.
 It is used to enable infinite scrolling on the Posts and Recommendations components and on comments. Infinite scrolling is a standard feature in all social media sites.
-- jwt decode -
-- `npm test`
-- `npm install msw --save-dev`
+- jwt decode - Using command `npm install jwt-decode`. Used to remove requests to refresh an access token for signed out users. It enables the refresh token to be decoded so that a timestamp can be put in local storage, if a timestamp does not exist in the user's local storage then access refresh requests will not be made.
+
+## Testing
+
+### User Story Testing
+
+### Testing Technologies
+
+#### Manual Testing
+I manually tested all the features of the website making sure to go through them with different browsers and device sizes. I also checked the features of the site against the original user stories and compared them with the acceptance Criteria. All the tests were recorded using LICEcap tool.
+
+CRUD functionality has been tested for the following: Posts, Reviews, Events, Comments, Likes, Follows and Profile on both the development and deployed version of the site
+All Nav links open on the correct page
+All external links open in a new browser
+Authentication works displaying a different set of options for logged-in users compared to logged-out
+Pages that are intended for logged-in users only will redirect any users who are not logged in back to the homepage
+Validation on forms works
+Not found pages display correctly when a non-existent URL is searched or a Post, Review or Event that doesn't exist is searched
+All pages are mobile responsive
+#### Validation
