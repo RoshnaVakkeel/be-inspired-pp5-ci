@@ -767,24 +767,174 @@ The sections below presents an exhaustive list of manual tests done. The gifs sh
 #### Create Post
 
 **Function Tests:**
-[Liked Page](docs/features_testing/liked_page.gif)
+
+[Post Create Page](docs/features_testing/post_create.gif)
+
+[Validation message](docs/features_testing/post_create_validation_message.png)
 
 |  **Expected Feature** | **Result** |
 |-------------------------|---------------------|
-| On the top position, NavBar Liked NavItem changes view  | **Pass** |
-| On the left panel, one can see create section| **Pass** |
+| In create section, when + Post is clicked, Post create form opens | **Pass** |
+| Contains title, category, description and image fields that users can fill and submit| **Pass** |
+| User receives validation message upon submitting empty form.| **Pass** |
+| Upon submitting filled form, user is shown the post details page| **Pass** |
 
 
+#### Create Recommendation
+
+**Function Tests:**
+
+[Recommendation Create Page](docs/features_testing/recommendation_create.gif)
+
+[Validation message](docs/features_testing/recommendation_form_validation_message.png)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| In create section, when + recommendation is clicked, recommendation create form opens | **Pass** |
+| Contains title, category, price_category, description, reason and image fields that they can fill and submit.| **Pass** |
+| User receives validation message upon submitting empty form | **Pass** |
+| Upon submitting filled form, user is shown the recommendation details page| **Pass** |
+
+#### Categories
+
+[Post Category Search](docs/features_testing/post_category_search.gif)
+
+[Recommendation Category Search](docs/features_testing/recommendation_category_search.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| User can sort the different categories of posts by selecting a badge | **Pass** |
+| User can sort the different categories of recommendation by selecting a badge | **Pass** |
+
+#### Search Feature
+
+[Search Bar](docs/features_testing/search_feature.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Allows to search through all post title, category or keyword in post/recommendation| **Pass** |
+| Can be seen in all list pages| **Pass** |
 
 
+#### Popular Profiles (Active Inspirers)
+
+[Popular Profiles ](docs/features_testing/search_feature.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Shows 10 most followed profiles in large devices in right column| **Pass** |
+| It shows first three most followed profiles in the app in medium to small devices| **Pass** |
+| **Pass** |
+| Can be seen in all list and post/profiles/recommendation details pages| **Pass** |
+| The component displays user avatar, name and follow/unfollow button| **Pass** | 
+| Users are able to follow a specific profile they like and then be able to easily view their posts in the Feed| **Pass** | 
+
+#### Post Section in PostsListPage (Home)
+
+**Function Tests:**
+
+[PostsListPage (Home) ](docs/features_testing/postsListPage.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The posts are displayed in a single list, styled as cards for clean separation between posts| **Pass** |
+|  infinite scroll feature| **Pass** |
+| Each post includes a title, category, description and image| **Pass** |
+| Posts show Like and Comments icons showing number they received.| **Pass** | 
+| Clicking on heart icon adds a like to the post| **Pass** | 
+| Clicking on comments icon takes user to the post detail page which displays all the comments the post recieved.| **Pass** | 
+
+**Responsiveness**
+
+[PostsListPage (Home) responsiveness ](docs/features_testing/postsListPage_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Post section takes up 50% width (central column) in large devices | **Pass** |
+| Post section takes up 60% (right column) width in large devices| **Pass** |
+| Post section takes up 100% width in large devices| **Pass** |
 
 
+#### Recommendation Section in recommendationsListPage (Home)
+
+**Function Tests:**
+
+[recommendationsListPage (Recommendation)](docs/features_testing/recommendationsListPage_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The recommendations are displayed in a single list, styled as cards for clean separation between recommendations| **Pass** |
+|  infinite scroll feature| **Pass** |
+| Each recommendation includes a title, category, price_category, description, reason and image| **Pass** |
+| recommendations show Like and Comments icons showing number they received.| **Pass** | 
+| Clicking on heart icon adds a like to the recommendation| **Pass** | 
+| Clicking on comments icon takes user to the recommendation detail page which displays all the comments the recommendation recieved.| **Pass** | 
+
+**Responsiveness**
+
+[RecommendationsListPage (Recommendation) responsiveness ](docs/features_testing/recommendationsListPage.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Recommendation section takes up 50% width (center) in large devices | **Pass** |
+| Recommendation section takes up 60% width (right column) in large devices| **Pass** |
+| Recommendation section takes up 100% width in large devices| **Pass** |
 
 
+#### Post and Recommendation Section (Feed page)
+
+**Function Tests:**
+
+[Feed Page ](docs/features_testing/feed_page.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The posts and recommendations are displayed in a single list, styled as cards for clean separation between recommendations| **Pass** |
+| Contains all posts and recommendations of users that the logged in user follows |**Pass** |
+| infinite scroll feature| **Pass** |
+| Each recommendation includes a title, category, description and image| **Pass** |
+| Each recommendation includes a title, category, price_category, description, reason and image| **Pass** |
+| posts and recommendations show Like and Comments icons showing number they received.| **Pass** | 
+| Clicking on heart icon adds a like to the recommendation| **Pass** | 
+| Clicking on comments icon takes user to the post/recommendation detail page which displays all the comments the post/recommendation recieved.| **Pass** | 
+
+**Responsiveness**
+
+[Feed Page responsiveness ](docs/features_testing/feed_Page_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Posts and Recommendation section takes up 50% width (center) in large devices | **Pass** |
+| Posts and Recommendation section takes up 60% width (right column) in large devices| **Pass** |
+| Posts and Recommendation section takes up 100% width in large devices| **Pass** |
 
 
+#### Liked Page
 
+**Function Tests:**
 
+[Liked Page ](docs/features_testing/feed_page.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The posts and recommendations are displayed in a single list, styled as cards for clean separation between recommendations| **Pass** |
+| Contains all posts and recommendations of users that the logged in user likes |**Pass** |
+| infinite scroll feature| **Pass** |
+| Each recommendation includes a title, category, description and image| **Pass** |
+| Each recommendation includes a title, category, price_category, description, reason and image| **Pass** |
+| Posts and recommendations show Like and Comments icons showing number they received.| **Pass** | 
+| Clicking on heart icon adds a like to the recommendation| **Pass** | 
+| Clicking on comments icon takes user to the post/recommendation detail page which displays all the comments the post/recommendation recieved.| **Pass** | 
+
+**Responsiveness**
+
+[Liked Page responsiveness ](/workspace/be-inspired-pp5-ci/docs/features_testing/liked_Page_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Posts and Recommendation section takes up 50% width (center) in large devices | **Pass** |
+| Posts and Recommendation section takes up 60% width (right column) in large devices| **Pass** |
+| Posts and Recommendation section takes up 100% width in large devices| **Pass** |
 
 
 
@@ -800,3 +950,74 @@ The official W3C Markup Validator was used to validate the CSS in the project.
 All CSS code passed through the validator without any issues.
 
 ![CSS Validation](docs/testing/w3c_jigsaw_css_validation.png)
+
+
+## Issues and Fixes
+
+Issue 1: NavBar won't update
+
+When user signs up and signs in, the NavBar didn't update. It stayed in logged out view. The reason was that the access token key generated by the backend wouldn't reach frontend. It wasn't obseved in the console. I was getting the error: ...herokuapp.com/dj-rest-auth/user/ 401 (Unauthorized). 
+This is the link to the issue: [Link](/workspace/be-inspired-pp5-ci/docs/issues/NavBar_update_issue.pdf)
+
+Fix: (Thanks to Sean from Tutor support, CI)
+
+Installed old version of dj-rest-auth==2.1.9 and the access token was seen in the console.
+Reason: As I installed the versions suggested in Moments App for React using `npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`.  The dj-rest-auth version installed for backend drf-api was 3.0.0. It should be dj-rest-auth==2.1.9. This caused the NavBar logged-in or logged-out view to fail upon signing in.  The fix is: At the terminal of backend drf-api, install dj-rest-auth using `pip3 install dj-rest-auth==2.1.9` . Then git add and push and deploy using Heroku. 
+
+Issue 2: Cloudinary profile picture 404 error
+
+Upon any new user was created, there was an [error 404 observed in the console](/workspace/be-inspired-pp5-ci/docs/issues/cloudinary_console_error.pdf). 
+
+Fix: 
+
+The issue was due to the wrong destination path of the profile and post default images. I saved the files inside /images/ folder, where all the uploaded images get saved. I needed to place the default files in the root directory. This solved my error.
+
+Issue 3: User stays signed in after signing out
+
+When a user signs in, sign in is successful and I get an access token and a refreshTokenTimeStamp in Application, local storage. When a user signs out, sign out is successful and the local storage shows the refreshTokenTimeStamp is gone. But upon page refresh, the previous user automatically sign in.
+Details can be found [here](/workspace/be-inspired-pp5-ci/docs/issues/user_signs_in_on_page_refresh.pdf)
+
+Fix: As mentioned in the backend drf-api deployment section, "dj-rest-auth has a bug that doesn’t allow users to log out. One way to fix this issue is to have our own logout view, where we set both cookies to an empty string and pass additional attributes like secure, httponly and samesite, which was left out by mistake by the library." I missed adding the path of logout url in drf project's urls.py file. Adding path for logout route solved the issue.
+ 
+
+
+### Learning Resources
+- The codes are heavily dependent on ['Moments'](https://github.com/Code-Institute-Solutions/moments) walkthrough that was provided by Code Institute. Though it was used as a foundation, extra functionalities have been added to make this project truly my own. Code Institute has been credited throughout my code where applicable using docstrings. I have built my own styles and added extra functionality, such as filtering of posts based on their category, Recommendations page, Feedback messages and landing page.
+- Other CI students projects being referred include:
+	- [Buzz of Berlin](https://github.com/vkleer/ci-pp5-buzz-of-berlin/)
+	- [Gamer Verse](https://github.com/Jbachtiger/ci-pp5-gamer-verse/)
+	- [Snapfood](https://github.com/aleksandracodes/ci_pp5_snapfood/)
+	- [Quizle](https://github.com/adamhatton/quizle/)
+- Stack Overflow: To understand Error 400 at console. [Link 1](https://stackoverflow.com/questions/68171152/react-failed-to-load-resource-the-server-responded-with-a-status-of-400-bad), [Link 2](https://stackoverflow.com/questions/72822598/how-to-resolve-failed-to-load-resource-the-server-responded-with-a-status-of-4)
+- 
+
+## Content
+- All the content in the website has been written by Roshna Vakkeel (the developer), excluding the lab log posts.
+- The lab log posts are created by different user's a few were created by me - learner (Admin, Superuser), Peter and Mickey.
+- The other usernames were contributed by my fellow students of our group, friends and family members.
+- This application was created for the education purpose only. A majority of photographs added as posts were taken from my pictures files from computer.Source is unknown.
+
+
+## Media
+- Hero-image and Diwali, get stronger pictures was taken from [Pexels](https://www.pexels.com/).
+- Upload image, default profile and post images were reused from CI's Moments walkthrough.
+- Logo was created by my sister, which was also used to generate Favicon.
+
+[Back to top ⇧](#contents)
+
+## Acknowledgements
+I would like to acknowledge the following people who have helped me along the way in completing my fourth milestone project:
+- My Mentor Elaine B Roche for her guidance, advice and constant encouragement. Her suggestions helped me improve the app. Very thankful for the materials she shared with me. 
+- My fellow students for their company and encouragement. A very heartfelt thanks to Tony Albanese for his invaluable support throughout the development of the App. Especially at the time when tutors also couldn't spot the issues with my code and due to lack of time inceased my tensions drastically. I owe him a debt of gratitude for his prompt and constant support that got me out of major issues I was facing during project development. 
+- A special thanks to my sister Nisha and brother in law Srijith for coming up with logo for the App. It is an original artwork.
+- Special thanks to Kristyna Maulerova, Jyoti Yadav for their encouragement, support and for testing my website, adding posts and comments.
+- My dear friends and family members, especially my Angel niece, who tested the website and gave valuable feedback.
+- My tutors who helped me solve issues when I had them. Special thanks to Sean for his help in solving a major version issue that stalled my project.
+
+[Back to top ⇧](#contents)
+
+
+**Info on README**
+
+- All the picture files used here are saved in docs folder.
+- All feature files are in Features folder, testing related files are in Validation folder, Agile related files are in Agile folder, wireframes in wireframes folder, features and features testing files are saved in features_testing folder, testing related files in testing folder, responsiveness folder contains screenshots from .
