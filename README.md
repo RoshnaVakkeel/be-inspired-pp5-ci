@@ -385,18 +385,72 @@ It is used to enable infinite scrolling on the Posts and Recommendations compone
 ## Testing
 
 ### User Story Testing
+ - All the User Stories in the [User Experience (UX)](#user-experience-ux) enlisted had different Acceptance Criteria. 
+ - Acceptance Criteria mentions the key features that needed to design and create the user experience as expected. 
+ - User stories were matched with the features and were cross-checked whether all the features as per the mentioned criteria exists in the website.
+ - All Criteria got a pass as result 
+ This excel document shows the list of Acceptance Criteria, the matching features and the links to the features: [User Story Testing](docs/testing/user_story_testing_be_inspired.xlsx)
 
 ### Testing Technologies
+The testing is broken into categories: manual and validation. Details can be found below.
 
 #### Manual Testing
 I manually tested all the features of the website making sure to go through them with different browsers and device sizes. I also checked the features of the site against the original user stories and compared them with the acceptance Criteria. All the tests were recorded using LICEcap tool.
 
-CRUD functionality has been tested for the following: Posts, Reviews, Events, Comments, Likes, Follows and Profile on both the development and deployed version of the site
-All Nav links open on the correct page
-All external links open in a new browser
-Authentication works displaying a different set of options for logged-in users compared to logged-out
-Pages that are intended for logged-in users only will redirect any users who are not logged in back to the homepage
-Validation on forms works
-Not found pages display correctly when a non-existent URL is searched or a Post, Review or Event that doesn't exist is searched
-All pages are mobile responsive
+The aspects considered while testing:
+- CRUD functionality for Posts, Recommendations, Comments, Likes, Follows and Profile on both the development and deployed version of the site.
+- All Nav links open on the correct page
+- Page responsiveness
+- Authentication works displaying a different set of options for logged-in users compared to logged-out
+- Not found pages display correctly when a non-existent URL hen entered
+
+#### LandingPage
+
+**Function Tests:**
+[Landing Page](docs/features_testing/landing_page.gif)
+
+| **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| When Sign Up Nav Item is clicked, Sign Up page opens| **Pass** |
+| When Sign In Nav Item is clicked, Sign In page opens| **Pass** |
+| When Sign In New? button is clicked, Sign Up page opens| **Pass** |
+| When Sign In Member? button is clicked, Sign In page opens| **Pass** |
+| When Logo is clicked, Landing page first view returns| **Pass** |
+| When Footer links are clicked, Respective links open| **Pass** |
+
+
+**Responsiveness Test:**
+[Landing Page Responsiveness](docs/features_testing/landing_page_responsiveness.gif)
+
+| **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| When in Inspect mode in Dev Tools is open, Landing Page is responsive| **Pass** |
+
+
+#### PostsListPage
+
+**Function Tests:**
+[PostsListPage](docs/features_testing/postsListPage.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the top position, NavBar changes view| **Pass** |
+| On the left panel, one can see create section| **Pass** |
+| On the right panel, one can see PopularProfiles section| **Pass** |
+| In the center, one can see posts section | **Pass** |
+| Posts section has infinite scroll feature| **Pass** |
+
+**Responsiveness Test:**
+[PostsListPage Responsiveness](docs/features_testing/postsListPage_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the large devices and above, three columns are visible with panels ratio 1:2:1| **Pass** |
+| On the medium devices, two columns are visible with panels ratio 1:2:1| **Pass** |
+| On the small devices like mobile and above, one column is visible| **Pass** |
+
+
+
+
+
 #### Validation
