@@ -354,7 +354,7 @@ As shown on link provided: [Sign In](docs/features_testing/sign_in.gif)
 
 ### Create Panel Links
 
-It features these links as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/create_panel_links.gif)
+It features these links as shown [here](docs/features_testing/create_panel_links.gif)
 + Avatar with Username - On clicking it links to the signed in user's Profile Detail page
 + Create Profile - On clicking it links to Profile Edit Form
 + Create Posts - On clicking it links to Post Create Form
@@ -362,9 +362,10 @@ It features these links as shown [here](/workspace/be-inspired-pp5-ci/docs/featu
 
 ### Profile Detail page
 
-Profile detail page looks like and can be accessed as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/profile_details.gif)
+Profile detail page looks like and can be accessed as shown [here](docs/features_testing/profile_details.gif)
 - The user can access their profile or others by selecting their avatars. 
 - The edit profile page provides user's details including adding a their name, age_group, brie_bio, add/update their profile image. 
+- Displays info how many followers user has and how many users they are following
 - It also shows number of posts and recommendations they created.
 - It also enlists the posts and recommendations they created as you scroll down.
 - If the user signed in clicks on their profile, they can see a dropdown menu at top right corner.
@@ -388,42 +389,121 @@ Profile detail page looks like and can be accessed as shown [here](/workspace/be
 
 ### Recommendation Create Form 
 
-As shown on link provided: [+ Recommendation](/workspace/be-inspired-pp5-ci/docs/features_testing/recommendation_create.gif)
+As shown on link provided: [+ Recommendation](docs/features_testing/recommendation_create.gif)
 - Contains title, category, price_category, description, reason and image fields that they can fill and submit.
 - They will be redirected to Recommendation Details page.
 - User receives validation message upon submitting empty form.
 
 ### Categories
 
-- User can sort the different categories of posts by selecting a badge. It functions as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/post_category_search.gif)
-- User can sort the different categories of recommendations by selecting a badge. It functions as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/recommendation_category_search.gif)
+- User can sort the different categories of posts by selecting a badge. It functions as shown [here](docs/features_testing/post_category_search.gif)
+- User can sort the different categories of recommendations by selecting a badge. It functions as shown [here](docs/features_testing/recommendation_category_search.gif)
 
 ### Search Feature
 
-It functions as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/search_feature.gif)
+It functions as shown [here](docs/features_testing/search_feature.gif)
 - By typing a query in the search bar users can find a specific post or recommendation they are looking for
 - Allows to search through all post title, category or keyword in post/recommendation
 
 ### Popular Profiles (Active Inspirers)
 
+- Reusable component shows 10 most followed profiles in large devices in right column.
+- It shows first three most followed profiles in the app in medium to small devices.
+- The component displays user avatar, name and follow/unfollow button.
+- - Users are able to follow a specific profile they like and then be able to easily view their posts in the Feed.
+
 ### Post Section (Home)
+
+Post section is displayed in the column next to create panel. As shown [here](docs/features_testing/postsListPage.gif)
+- The posts are displayed in a single list, styled as cards for clean separation between posts.
+- Enabled with infinite scroll feature.
+- Each post includes a title, category, description and image, along with Like and Comments icons showing number they received.
+- Clicking on heart icon adds a like to the post.
+- Clicking on comments icon takes user to the post detail page which displays all the comments the post recieved.
 
 ### Recommendation Section (Recommendation)
 
+Recommendation section is displayed in the column next to create panel. As shown [here](docs/features_testing/recommendationsListPage.gif)
+- The recommendations are displayed in a single list, styled as cards for clean separation between recommendations.
+- Enabled with infinite scroll feature.
+- Each recommendation includes a title, category, price_category, description, reason and image, along with Like and Comments icons showing number they received.
+- Clicking on heart icon adds a like to the recommendation.
+- Clicking on comments icon takes user to the recommendation detail page which displays all the comments the recommendation recieved.
+
 ### Post and Recommendation Section (Feed page)
+
+- Contains all posts and recommendations of users that the logged in user follows As shown [here](docs/features_testing/feed_page.gif)
+- The posts are displayed in a single list, styled as cards for clean separation between posts.
+- Each post includes a title, category, description and image, along with Like and Comments icons showing number they received.
+- The recommendations are displayed in a single list, styled as cards for clean separation between recommendations.
+- Each recommendation includes a title, category, price_category, description, reason and image, along with Like and Comments icons showing number they received.
+- Clicking on heart icon adds a like to the post/recommendation.
+- Clicking on comments icon takes user to the slected post's/recommendation's detail page which displays all the comments the post/recommendation recieved.
+- Enabled with infinite scroll feature.
 
 ### Post and Recommendation Section (Liked page)
 
+- Contains all posts and recommendations of users that the logged in user likes as shown [here](docs/features_testing/feed_page.gif)
+- The posts are displayed in a single list, styled as cards for clean separation between posts.
+- Each post includes a title, category, description and image, along with Like and Comments icons showing number they received.
+- The recommendations are displayed in a single list, styled as cards for clean separation between recommendations.
+- Each recommendation includes a title, category, price_category, description, reason and image, along with Like and Comments icons showing number they received.
+- Clicking on heart icon adds a like to the post/recommendation.
+- Clicking on comments icon takes user to the slected post's/recommendation's detail page which displays all the comments the post/recommendation recieved.
+- Enabled with infinite scroll feature.
+
 ### Comments Section 
+
+- The section can be found under a post and recommendation detail pages.
+- Can be accessed by clicking the comments icon
+- The CRUD functions can be seen [here](docs/features_testing/comment_create_update_delete.gif).
+- Allows users to add a comment on a post or recommendation
+- Comments can be edited or deleted
+- Displays the date the comment was posted or edited
+- All comments can be read by all other users.
+- Editing of other users' comments is not allowed as dropdown menu will not be visible. 
 
 ### Like Unlike Feature
 
+The features are as shown [here](docs/features_testing/like.gif)
+- A logged in user can like  post/recommendation that interests them
+- A logged in user can like  post/recommendation that interests them
+- The liked post/recommendation will appear in "Liked" page
+- The number the likes recieved by the post/recommendation can be seen on each page.
+
 ### Post Detail Page
+
+The Post Detail page looks like as shown [here](docs/features_testing/post_details.gif)
+- Contains details of a single post - image, title, description (if provided by the user) and its category tag
+- Contains number of likes and comments the post has
+- Contains like icon to allow user to like the post
+- Features comments section below the post. 
+- Comments add field will be visible to the users.
+- Contains a dropdown menu on the post to allow the owner to edit or delete the post
 
 ### Recommendation Detail Page
 
+The Recommendation Detail page looks like as shown [here](docs/features_testing/recommendation_details.gif)
+- Contains details of a single Recommendation - image, title, description (if provided by the user) and its category tag
+- Contains number of likes and comments the Recommendation has
+- Contains like icon to allow user to like the Recommendation.
+- Features comments section below the Recommendation. 
+- Comments add field will be visible to the users.
+- Contains a dropdown menu on the Recommendation to allow the owner to edit or delete the Recommendation.
+
+### Post Edit Form 
 
 
+- Can only be accessed Can be accessed from the post details page by clicking the dropdown menu that can be seen only if the logged in user is the owner of the post as shown [here](docs/features_testing/post_edit.gif)
+- Contains title, category, description and image fields that they can fill and update.
+- They will be redirected to Post Details page.
+
+### Recommendation Edit Form 
+
+- Can only be accessed Can be accessed from the recommendation details page by clicking the dropdown menu that can be seen only if the logged in user is the owner of the recommendation as shown [here](docs/features_testing/recommendation_edit.gif)
+- Contains title, category, price_category, description, reason and image fields that they can fill and submit.
+- They will be redirected to Recommendation Details page.
+- User receives validation message upon submitting empty form.
 
 
 ## Components
