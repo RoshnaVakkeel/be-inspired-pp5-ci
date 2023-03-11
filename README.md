@@ -434,9 +434,10 @@ The aspects considered while testing:
 
 |  **Expected Feature** | **Result** |
 |-------------------------|---------------------|
-| On the top position, NavBar changes view| **Pass** |
+| On the top position, NavBar Home NavItem changes view| **Pass** |
 | On the left panel, one can see create section| **Pass** |
-| On the right panel, one can see PopularProfiles section| **Pass** |
+| On the left panel, one can see categories section| **Pass** |
+| On the right panel, one can see PopularProfiles (Active Inspirers) (Active Inspirers) section| **Pass** |
 | In the center, one can see posts section | **Pass** |
 | Posts section has infinite scroll feature| **Pass** |
 
@@ -446,9 +447,85 @@ The aspects considered while testing:
 |  **Expected Feature** | **Result** |
 |-------------------------|---------------------|
 | On the large devices and above, three columns are visible with panels ratio 1:2:1| **Pass** |
-| On the medium devices, two columns are visible with panels ratio 1:2:1| **Pass** |
+| On the medium devices, two columns are visible with panels ratio 1:2 | **Pass** |
+| On the medium devices, PopularProfiles (Active Inspirers) changes to 2-column mode | **Pass** |
 | On the small devices like mobile and above, one column is visible| **Pass** |
+| On the small devices like mobile and above, NavBar toggles to Hamburger menu view| **Pass** |
 
+
+#### RecommendationsListPage
+
+**Function Tests:**
+[RecommendationsListPage](docs/features_testing/recommendationsListPage.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the top position, NavBar Recommendation NavItem changes view| **Pass** |
+| On the left panel, one can see create section| **Pass** |
+| On the left panel, one can see categories section| **Pass** |
+| On the right panel, one can see PopularProfiles (Active Inspirers) section| **Pass** |
+| In the center, one can see recommendation section | **Pass** |
+| Recommendation section has infinite scroll feature| **Pass** |
+
+**Responsiveness Test:**
+[recommendationsListPage Responsiveness](docs/features_testing/recommendationsListPage_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the large devices and above, three columns are visible with panels ratio 1:2:1| **Pass** |
+| On the medium devices, two columns are visible with panels ratio 1:2 | **Pass** |
+| On the medium devices, PopularProfiles (Active Inspirers) changes to 2-column mode | **Pass** |
+| On the small devices like mobile and above, one column is visible| **Pass** |
+| On the small devices like mobile and above, NavBar toggles to Hamburger menu view| **Pass** |
+
+#### Feed Page
+
+**Function Tests:**
+[Feed Page](docs/features_testing/feed_page.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the top position, NavBar Feed NavItem changes view  | **Pass** |
+| On the left panel, one can see create section| **Pass** |
+| On the right panel, one can see PopularProfiles (Active Inspirers) section| **Pass** |
+| In the center, one can see section enlisting all the posts and recommendation of the profiles user follows | **Pass** |
+| Post and Recommendation section has infinite scroll feature| **Pass** |
+
+**Responsiveness Test:**
+[Feed page Responsiveness](docs/features_testing/feed_Page_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the large devices and above, three columns are visible with panels ratio 1:2:1| **Pass** |
+| On the medium devices, two columns are visible with panels ratio 1:2 | **Pass** |
+| On the medium devices, PopularProfiles (Active Inspirers) changes to 2-column mode | **Pass** |
+| On the small devices like mobile and above, one column is visible| **Pass** |
+| On the small devices like mobile and above, NavBar toggles to Hamburger menu view| **Pass** |
+
+
+#### Liked Page
+
+**Function Tests:**
+[Liked Page](docs/features_testing/liked_page.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the top position, NavBar Liked NavItem changes view  | **Pass** |
+| On the left panel, one can see create section| **Pass** |
+| On the right panel, one can see PopularProfiles (Active Inspirers) section| **Pass** |
+| In the center, one can see section enlisting all the posts and recommendation that user liked | **Pass** |
+| Post and Recommendation section has infinite scroll feature| **Pass** |
+
+**Responsiveness Test:**
+[Liked page Responsiveness](docs/features_testing/liked_Page_responsiveness.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the large devices and above, three columns are visible with panels ratio 1:2:1| **Pass** |
+| On the medium devices, two columns are visible with panels ratio 1:2 | **Pass** |
+| On the medium devices, PopularProfiles (Active Inspirers) changes to 2-column mode | **Pass** |
+| On the small devices like mobile and above, one column is visible| **Pass** |
+| On the small devices like mobile and above, NavBar toggles to Hamburger menu view| **Pass** |
 
 
 
