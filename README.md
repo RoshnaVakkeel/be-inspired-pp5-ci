@@ -46,8 +46,9 @@ To be inspired and to spread positivity around..
 - [Testing](<#testing>)
 	- [User Story Testing](<#user-story-testing>)
 	- [Testing Technologies](<#testing-technologies>)
-		- [Manual Testing](<#manual-testing>)
-		- [Validation](<#validation>)
+	- [Manual Testing](<#manual-testing>)
+	- [Validation](<#validation>)
+	- [Browser Compatibility](<#browser-compatibility>)
 - [Issues and Fixes](<#issues-and-fixes>)
 - [Deployment](<#deployment>)
 	- [Heroku](<#heroku>)
@@ -493,7 +494,6 @@ The Recommendation Detail page looks like as shown [here](docs/features_testing/
 
 ### Post Edit Form 
 
-
 - Can only be accessed Can be accessed from the post details page by clicking the dropdown menu that can be seen only if the logged in user is the owner of the post as shown [here](docs/features_testing/post_edit.gif)
 - Contains title, category, description and image fields that they can fill and update.
 - They will be redirected to Post Details page.
@@ -575,16 +575,61 @@ It is used to enable infinite scrolling on the Posts and Recommendations compone
 ## Testing
 
 ### User Story Testing
+
  - All the User Stories in the [User Experience (UX)](#user-experience-ux) enlisted had different Acceptance Criteria. 
  - Acceptance Criteria mentions the key features that needed to design and create the user experience as expected. 
  - User stories were matched with the features and were cross-checked whether all the features as per the mentioned criteria exists in the website.
  - All Criteria got a pass as result 
  This excel document shows the list of Acceptance Criteria, the matching features and the links to the features: [User Story Testing](docs/testing/user_story_testing_be_inspired.xlsx)
 
-### Testing Technologies
-The testing is broken into categories: manual and validation. Details can be found below.
+ **User's Testing Experience**
 
-#### Manual Testing
+This testing consisted of checking:
+- The website functioned as expected
+- Working of all the links
+- Submission of posts, recommendations and comments
+- Edit and delete functions
+- Sign Up, Sign in and Sign Out features Testing
+
+**User's Testing Feedback Implementation**
+There are a number of accounts were created by different users using differnet devices. Many quoted the mobile browser incompatibilty upon signing in. In Django Admin, the user registration was seen. 
+
+My personal experience was the same. In order to be able to test the full sign in functionality on Safari, the "Prevent Cross-Site Tracking" needed to be turned off in the browser settings. Then  it worked. This is because if this isn't done, the cookies are not saved and access tokens are not refreshed. This means a user can be created however, the sign in functionality doesn't work. 
+
+ Almost 12 users have signed up for testing of the website other than me. All the feedbacks were taken into account and improvements were made in the website to boost UX.
+ The suggestions were:
+ - Better link contrast
+ - Back to Top button
+ - Add boxes to blockquotes and add a detailed About section
+ - Error 500 upon signing up - Few users reported about this error. 
+ It was fixed by adding this in settings.py file:
+ ****
+ ACCOUNT_EMAIL_VERIFICATION = "none"
+ ****
+
+
+### Browser Compatibility
+
+- The website was manually tested the website on 3 different browsers: Chrome, Mozilla Firefox and Microsoft Edge (Desktop) and Safari(mobile phone). In all the browsers the website functions very well and all the features work similarly. 
+
+
+**Responsiveness in different device sizes**
+In addition, I also tested it on my own mobile with Safari search engine, and had a number of friends and family test it on their phones, tablets and laptops. 
+The pages render well in all the devices in a responsive manner.
+
+- In order to be able to test the full sign in functionality on Safari, the "Prevent Cross-Site Tracking" needed to be turned off in the browser settings. This is because if this isn't done, the cookies are not saved and access tokens are not refreshed. This means a user can be created however, the sign in functionality doesn't work. 
+
+**Devices Tested**
+The website was viewed on a variety of devices of all sizes including:
+- Dell Inspiron N5110 (15.6-inch 2012 version) - All the screenshots and gifs reported in this Readme file  are generated on this device.
+- MacBook Pro (13-inch 2015 version)
+- HP Spectre 360
+- Lenovo Thinkpad (14-inch 2017 version)
+- Lenovo Ideapad (14-inch)
+- Moto G6+  - screenshots- [landingPage](docs/responsiveness/landing_motorola_G6+.png), [postsListPage](docs/responsiveness/post_create_form_motorola_G6+.png), [post_create_form](docs/responsiveness/post_create_form_motorola_G6+.png)
+- iPhone 13 mini - screenshots - [postsListPage](docs/responsiveness/postsListPage_iPhone13.pdf), [post_create_form](docs/responsiveness/post_create_iPhone13.pdf), [profilePage](docs/responsiveness/profilePage_iPhone13.pdf)
+
+### Manual Testing
 I manually tested all the features of the website making sure to go through them with different browsers and device sizes. I also checked the features of the site against the original user stories and compared them with the acceptance Criteria. All the tests were recorded using LICEcap tool.
 
 The aspects considered while testing:
@@ -592,7 +637,9 @@ The aspects considered while testing:
 - All Nav links open on the correct page
 - Page responsiveness
 - Authentication works displaying a different set of options for logged-in users compared to logged-out
-- Not found pages display correctly when a non-existent URL hen entered
+- Not found pages display correctly when a non-existent URL when entered
+
+The sections below presents an exhaustive list of manual tests done. The gifs show the functionalities and responsiveness. Many files have been used in Features section as well.
 
 #### LandingPage
 
@@ -744,3 +791,12 @@ The aspects considered while testing:
 
 
 #### Validation
+
+### W3C Validatior
+The official W3C Markup Validator was used to validate the CSS in the project.
+
+[W3C CSS Jigsaw Validatior](https://jigsaw.w3.org/css-validator/validator)
+
+All CSS code passed through the validator without any issues.
+
+![CSS Validation](docs/testing/w3c_jigsaw_css_validation.png)
