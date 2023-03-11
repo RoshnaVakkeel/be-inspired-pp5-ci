@@ -316,6 +316,116 @@ The wireframes can be found in these links:<br>
 
 ## Features
 
+### Landing Page
+- Includes navbar, hero-image, main body and a footer
+- NavBar features logo, Sign Up and Sign in links
+- A footer is displayed at the bottom of the landing page
+	- Footer contains information about the creator
+	- Contains copyrights info
+	- Contains links to social media Linkedin and GitHub page (opening in a separate window)
+- Landing page main body includes description about the app and User guidance
+- Contains user guidance to Sign in Sign Up links
+All shown on link provided: [Landing Page](docs/features_testing/landing_page.gif)
+
+### NavBar
+- Featured and consistent on the all pages
+- Two variants of the navbar:
+  - New or not logged-in users will see the Sign up and Sign in icons, as shown in [Landing Page](docs/features_testing/landing_page.gif)
+	- NavLink that links to the log in page, allowing users to log in
+    - NavLink that links to the sign up page, allowing users to create an account
+  - For logged in user it shows Home, Recommendations, Feed and Liked and Sign Out Nav items. As shown on link provided: [NavBar signed in](docs/features_testing/NavBar_signed_in.gif)
+  	- NavLink that links to the home page, displaying all posts of the users the logged in user follows
+    - NavLink that links to the recommendations page, displaying all recommendations from all users
+	- NavLink that links to the liked page, displaying only the posts and recommendations a user has liked
+	- NavLink that signs the user out
+- The NavBar is fully responsive and changes to a toggler (hamburger menu) on smaller size screens.
+
+### Sign Up Link and Form
+- Allows users to create an account
+- Users must provide a valid username and enter their preferred password twice for confirmation
+- Users cannot register the same username twice
+As shown on link provided: [Sign Up](docs/features_testing/sign_up.gif)
+
+### Sign In Link and Form
+- Allows registered users to login to their account
+- Both the username and password have to be correct to be signed in
+- Displays errors if the username or password is wrong or the input is invalid
+As shown on link provided: [Sign In](docs/features_testing/sign_in.gif)
+
+### Create Panel Links
+
+It features these links as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/create_panel_links.gif)
++ Avatar with Username - On clicking it links to the signed in user's Profile Detail page
++ Create Profile - On clicking it links to Profile Edit Form
++ Create Posts - On clicking it links to Post Create Form
++ Create Recommendation - On clicking it links to Recommendation Create Form
+
+### Profile Detail page
+
+Profile detail page looks like and can be accessed as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/profile_details.gif)
+- The user can access their profile or others by selecting their avatars. 
+- The edit profile page provides user's details including adding a their name, age_group, brie_bio, add/update their profile image. 
+- It also shows number of posts and recommendations they created.
+- It also enlists the posts and recommendations they created as you scroll down.
+- If the user signed in clicks on their profile, they can see a dropdown menu at top right corner.
+- Dropdown menu features edit and delete icons.
+- Upon clicking on Edit icon, they can access - Profile Edit Form
+- Upon clicking on Delete icon, they can delete the profile, upon which they will recieve a feedback message.
+
+
+### Profile Edit Form
+
+- Can be accessed from Create Panel by clicking [+ Profile](docs/features_testing/Profile_edit.gif).
+- Also upon clicking on owner's own Profile detail page Dropdown menu with Edit icon, they can access - Profile Edit Form 
+- The edit profile page provides a user to edit their own details including adding a their name, age_group, brie_bio, add/update their profile image.
+
+### Post Create Form 
+
+- Can only be accessed from Create Panel by clicking [+ Post](docs/features_testing/post_create.gif)
+- Contains title, category, description and image fields that they can fill and submit.
+- They will be redirected to Post Details page.
+- User receives validation message upon submitting empty form.
+
+### Recommendation Create Form 
+
+As shown on link provided: [+ Recommendation](/workspace/be-inspired-pp5-ci/docs/features_testing/recommendation_create.gif)
+- Contains title, category, price_category, description, reason and image fields that they can fill and submit.
+- They will be redirected to Recommendation Details page.
+- User receives validation message upon submitting empty form.
+
+### Categories
+
+- User can sort the different categories of posts by selecting a badge. It functions as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/post_category_search.gif)
+- User can sort the different categories of recommendations by selecting a badge. It functions as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/recommendation_category_search.gif)
+
+### Search Feature
+
+It functions as shown [here](/workspace/be-inspired-pp5-ci/docs/features_testing/search_feature.gif)
+- By typing a query in the search bar users can find a specific post or recommendation they are looking for
+- Allows to search through all post title, category or keyword in post/recommendation
+
+### Popular Profiles (Active Inspirers)
+
+### Post Section (Home)
+
+### Recommendation Section (Recommendation)
+
+### Post and Recommendation Section (Feed page)
+
+### Post and Recommendation Section (Liked page)
+
+### Comments Section 
+
+### Like Unlike Feature
+
+### Post Detail Page
+
+### Recommendation Detail Page
+
+
+
+
+
 ## Components
 A number of the components created are reusable and were used across the website in multiple pages and sections.
 
@@ -417,7 +527,6 @@ The aspects considered while testing:
 | When Sign In Member? button is clicked, Sign In page opens| **Pass** |
 | When Logo is clicked, Landing page first view returns| **Pass** |
 | When Footer links are clicked, Respective links open| **Pass** |
-
 
 **Responsiveness Test:**
 [Landing Page Responsiveness](docs/features_testing/landing_page_responsiveness.gif)
@@ -526,6 +635,30 @@ The aspects considered while testing:
 | On the medium devices, PopularProfiles (Active Inspirers) changes to 2-column mode | **Pass** |
 | On the small devices like mobile and above, one column is visible| **Pass** |
 | On the small devices like mobile and above, NavBar toggles to Hamburger menu view| **Pass** |
+
+
+#### Create Post
+
+**Function Tests:**
+[Liked Page](docs/features_testing/liked_page.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| On the top position, NavBar Liked NavItem changes view  | **Pass** |
+| On the left panel, one can see create section| **Pass** |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
