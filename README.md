@@ -325,7 +325,8 @@ The wireframes can be found in these links:<br>
 	- Contains links to social media Linkedin and GitHub page (opening in a separate window)
 - Landing page main body includes description about the app and User guidance
 - Contains user guidance to Sign in Sign Up links
-All shown on link provided: [Landing Page](docs/features_testing/landing_page.gif)
+As shown here:
+![Landing Page](docs/features_testing/landing_page.gif)
 
 ### NavBar
 - Featured and consistent on the all pages
@@ -333,7 +334,7 @@ All shown on link provided: [Landing Page](docs/features_testing/landing_page.gi
   - New or not logged-in users will see the Sign up and Sign in icons, as shown in [Landing Page](docs/features_testing/landing_page.gif)
 	- NavLink that links to the log in page, allowing users to log in
     - NavLink that links to the sign up page, allowing users to create an account
-  - For logged in user it shows Home, Recommendations, Feed and Liked and Sign Out Nav items. As shown on link provided: [NavBar signed in](docs/features_testing/NavBar_signed_in.gif)
+  - For logged in user it shows Home, Recommendations, Feed and Liked and Sign Out Nav items. As shown below: ![NavBar signed in](docs/features_testing/NavBar_signed_in.gif)
   	- NavLink that links to the home page, displaying all posts of the users the logged in user follows
     - NavLink that links to the recommendations page, displaying all recommendations from all users
 	- NavLink that links to the liked page, displaying only the posts and recommendations a user has liked
