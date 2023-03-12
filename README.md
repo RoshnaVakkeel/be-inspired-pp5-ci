@@ -266,6 +266,9 @@ The tasks that I have followed during the development phase were carried out in 
 **Creation of Project in GitPod**
 
 - Set up ReactJS project
+- Install dependencies
+- Coding
+- Testing
 
 ### User Story Management
 
@@ -627,8 +630,8 @@ Fix: As mentioned in the backend drf-api deployment section, "dj-rest-auth has a
 - Key: Client_Origin | Value: [https://be-inspired-pp5-ci.herokuapp.com/](https://be-inspired-pp5-ci.herokuapp.com/)
 - Key: Client_Origin_Dev | Value: [https://3000-roshnavakke-beinspiredp-67p46452wii.ws-eu90.gitpod.io/](https://3000-roshnavakke-beinspiredp-67p46452wii.ws-eu90.gitpod.io/)
 
-2. Ensure that the trailing ```\``` is removed from the end of both links and save the config vars
-3. Install the Axios package, and create the supporting ```axiosDefaults.js``` file
+2. Ensure that the trailing '/' is removed from the end of both links and save the config vars
+3. Install the Axios package, and create the supporting `axiosDefaults.js` file
 
 ### Final Deployment
 
