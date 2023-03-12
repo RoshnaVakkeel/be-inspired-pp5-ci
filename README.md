@@ -270,6 +270,13 @@ The tasks that I have followed during the development phase were carried out in 
 - Coding
 - Testing
 
+**Future Tasks**
+There are so many feaures I wish to build upon. But due to severe time constraints, the App is in it's basic form. Few features, I would've liked to have are:
+- Add names of users who are following profile and followers details.
+- A page showing all users and their contributions
+- Proper category badge display and active badge on clicking.
+- Login info display and feedback messages on different actions.
+
 ### User Story Management
 
 #### Sprints
