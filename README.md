@@ -1160,9 +1160,11 @@ All CSS code passed through the validator without any issues.
 
 ### JSX Validation using ESLint
 
-The JSX code was validated using the ESLint utility. As my fellow students spoke about configuring ESLint using GitPod gave issues, I decided to download my project and run it locally in Visual Studio Code editor. I installed the Eslint package again and tested all js modules using command `npx eslint filename.js`.
-Settings used:
+Full Report can be found [here](docs/testing/ESLint_validation_report.pdf).
 
+The JSX code was validated using the ESLint utility. As my fellow students spoke about configuring ESLint using GitPod gave issues, I decided to download my project and run it locally in Visual Studio Code editor. I installed the Eslint package again and tested all js modules using command `npx eslint filename.js`.
+
+Settings used:
 Check syntax and find problems
 JavaScript modules (import/export)
 React
@@ -1172,11 +1174,41 @@ Runs in node
 JSON as config
 
 Following errors were seen:
-1. prop type validation: 
+1. Prop type validation error:
+	- Error about validating the data types for props passed in to components.
+	- This is a an error about validating the data types for props passed in to components. Although the use of data types is an important check for code reusability, ignoring data types in a project of this size and complexity is ok. However, for components to be truly reusable, data type validation is an important check. [Source](https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation)
+	- These were ignored as for a project of this size and complexity it is ok. 
+
 2. Do not pass children as props warning for Infinite Scroll component: This warning was ignored since it is part of the implementation for the InfiniteScroll component.
+	- It is part of the implementation for the InfiniteScroll component as shon in walkthrough.
+	- It was ignored
 
+3. Error in DropdownMenu.js - component-definition-is-missing-display-name 
+	- Credit: [Quora](https://www.quora.com/Why-is-component-definition-missing-display-name-react-display-name-error-occur-JavaScript-HTML-arrays-reactjs-antd-development)
+	- Reason: ESLint thinks you are defining a new component without setting any name to it.
 
- 
+	This is explained because ESLint cannot recognise the render prop pattern because you are not directly writing this render prop into a component, but into an object.
+
+	You can either put the render prop directly into your jsx implementation of the component, or shut down the ESLint's error by doing this :
+
+	// eslint-disable-next-line react/display-name
+
+	OR
+
+	If anyone needs to avoid this in all the files, add below to the rules section of .eslintrc.js file,
+
+	{ 
+	... 
+	"rules": { 
+		"react/display-name": "off" 
+	} 
+	} 
+
+ 4. An error about unescaped characters (in this case an apostrophe) was ignored as using the escaped character sequence suggested resulted in the apostrophe not displaying on the test server.
+	- File: LandingPage.js
+
+There were no other syntax errors observed. 
+
 ### Learning Resources
 - The codes are heavily dependent on ['Moments'](https://github.com/Code-Institute-Solutions/moments) walkthrough that was provided by Code Institute. Though it was used as a foundation, extra functionalities have been added to make this project truly my own. Code Institute has been credited throughout my code where applicable using docstrings. I have built my own styles and added extra functionality, such as filtering of posts based on their category, Recommendations page, Feedback messages and landing page. The major issue behind not bringing in more features was the time limit.
 - Other CI students projects being referred include:
