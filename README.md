@@ -381,6 +381,13 @@ Profile detail page looks like and can be accessed as shown [here](docs/features
 - Also upon clicking on owner's own Profile detail page Dropdown menu with Edit icon, they can access - Profile Edit Form 
 - The edit profile page provides a user to edit their own details including adding a their name, age_group, brie_bio, add/update their profile image.
 
+### Profile Password change option
+
+- Can be accessed from  Dropdown menu with password change [key icon](docs/features_testing/Profile_password_change.gif).
+- Also upon clicking on the password change option, they can update the password.
+- They will be redirected to Home page
+
+
 ### Post Create Form 
 
 - Can only be accessed from Create Panel by clicking [+ Post](docs/features_testing/post_create.gif)
@@ -467,8 +474,9 @@ Recommendation section is displayed in the column next to create panel. As shown
 ### Like Unlike Feature
 
 The features are as shown [here](docs/features_testing/like.gif)
+
 - A logged in user can like  post/recommendation that interests them
-- A logged in user can like  post/recommendation that interests them
+- A logged in user can unlike post/recommendation if they are not interested in it
 - The liked post/recommendation will appear in "Liked" page
 - The number the likes recieved by the post/recommendation can be seen on each page.
 
@@ -540,13 +548,13 @@ A number of the components created are reusable and were used across the website
 - [GitHub](https://github.com/) - for remote repository to store project code
 - [Gitpod](https://gitpod.io) - to host a virtual workspace
 - Validation:
-  - [WC3 Validator](https://validator.w3.org/) was used to validate the html
+  - [W3C Validator](https://validator.w3.org/) was used to validate the html
   - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css
   - [ESLint](https://eslint.org/) used to validate JSX code
 
 ### Frameworks, Libraries and Programs
 
-**Frameworks and Libraries **
+**Frameworks and Libraries**
 - [React Bootstrap4](https://react-bootstrap-v4.netlify.app/) - for styling the site and site responsiveness across various devices
 - [ReactJS](https://reactjs.org/) - to build the functionality of the site
 - [Font Awesome](https://fontawesome.com/) - to add various icons to the site
@@ -596,16 +604,7 @@ There are a number of accounts were created by different users using differnet d
 
 My personal experience was the same. In order to be able to test the full sign in functionality on Safari, the "Prevent Cross-Site Tracking" needed to be turned off in the browser settings. Then  it worked. This is because if this isn't done, the cookies are not saved and access tokens are not refreshed. This means a user can be created however, the sign in functionality doesn't work. 
 
- Almost 12 users have signed up for testing of the website other than me. All the feedbacks were taken into account and improvements were made in the website to boost UX.
- The suggestions were:
- - Better link contrast
- - Back to Top button
- - Add boxes to blockquotes and add a detailed About section
- - Error 500 upon signing up - Few users reported about this error. 
- It was fixed by adding this in settings.py file:
- ****
- ACCOUNT_EMAIL_VERIFICATION = "none"
- ****
+An error was spotted that upon clicking cancel option in post and recommendation edit option, the form was still getting submitted. Issue was that the type was by mistake written as "submit". That was removed and the issue was fixed.
 
 
 ### Browser Compatibility
@@ -937,12 +936,144 @@ The sections below presents an exhaustive list of manual tests done. The gifs sh
 | Posts and Recommendation section takes up 100% width in large devices| **Pass** |
 
 
+#### Comments
+
+[Comments ](docs/features_testing/comment_create_update_delete.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The section can be found under a post and recommendation detail pages| **Pass** |
+| Can be accessed by clicking the comments icon on posts or recommendation and the respective detail page opens|**Pass** |
+| Allows users to add a comment on a post or recommendation| **Pass** |
+| Comments can be edited or deleted if the logged in user is the owner of the comment| **Pass** |
+| Comment list displays the date the comment was posted or edited| **Pass** |
+| Editing of other users' comments is not allowed as dropdown menu will not be visible.| **Pass** | 
+
+#### Like Unlike Feature
+
+[Like Unlike Feature](docs/features_testing/like.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| A logged in user can like post/recommendation that interests them| **Pass** |
+| A logged in user can unlike post/recommendation if they are not interested in it|**Pass** |
+| The liked post/recommendation will appear in "Liked" page| **Pass** |
+| The number the likes recieved by the post/recommendation can be seen on each page| **Pass** |
+
+#### Post Detail Page
+
+[Post Detail Page ](docs/features_testing/post_details.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Contains details of a single post - image, title, description (if provided by the user) and its category tag| **Pass** |
+| Contains like icon to allow user to like the post| **Pass** |
+| Features comments section below the post| **Pass** |
+| Comments add field will be visible to the users.| **Pass** |
+| Contains a dropdown menu on the post to allow the owner to edit or delete the post| **Pass** |
 
 
+#### Recommendation Detail Page
 
-#### Validation
+[Recommendation Detail Page ](docs/features_testing/recommendation_details.gif)
 
-### W3C Validatior
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Contains details of a single recommendation - image, title, price-category, description & reason  (if provided by the user), and its category tag| **Pass** |
+| Contains like icon to allow user to like the recommendation| **Pass** |
+| Features comments section below the recommendation| **Pass** |
+| Comments add field will be visible to the users.| **Pass** |
+| Contains a dropdown menu on the recommendation to allow the owner to edit or delete the recommendation| **Pass** |
+
+#### Post Edit Form
+
+[Post Edit Form ](docs/features_testing/post_edit.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Can only be accessed Can be accessed from the post details page by clicking the dropdown menu that can be seen only if the logged in user is the owner of the post as shown here| **Pass** |
+| Contains title, category, description and image fields that they can fill and update| **Pass** |
+| They will be redirected to Post Details page.| **Pass** |
+
+#### Post Delete Option
+
+[Post Delete Option ](docs/features_testing/post_delete.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The owner of the post can choose to delete the post from the dropdown menu| **Pass** |
+| The reader of the post, who is not the owner of the post cannot choose to delete the post as there will be no dropdown menu| **Pass** |
+| Upon post delete, they will see a feedback message| **Pass** |
+
+#### Recommendation Edit Form
+
+[Recommendation Edit Form ](docs/features_testing/recommendation_edit.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Can only be accessed Can be accessed from the recommendation details page by clicking the dropdown menu that can be seen only if the logged in user is the owner of the recommendation as shown here| **Pass** |
+| Contains title, category, description and image fields that they can fill and update| **Pass** |
+| They will be redirected to recommendation Details page.| **Pass** |
+
+#### Recommendation Delete Option
+
+[Recommendation Delete Option ](docs/features_testing/recommendation_delete.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The owner of the recommendation can choose to delete the recommendation from the dropdown menu| **Pass** |
+| The reader of the recommendation, who is not the owner of the recommendation cannot choose to delete the recommendation as there will be no dropdown menu| **Pass** |
+| Upon recommendation delete, they will see a feedback message| **Pass** |
+
+#### Profile Details Page
+
+[Profile Details Page](docs/features_testing/profile_details.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| The user can access their profile or others by selecting their avatars.| **Pass** |
+| Displays info how many followers user has and how many users they are following| **Pass** |
+| It also shows number of posts and recommendations they created.| **Pass** |
+|The edit profile page provides user's details including adding a their name, age_group, brie_bio, add/update their profile image|**Pass** |
+| It also enlists the posts and recommendations they created as you scroll down.| **Pass** |
+| If the user signed in clicks on their profile, they can see a dropdown menu at top right corner, which a non-owner cannot see| **Pass** |
+|Dropdown menu features edit and delete icons.|**Pass**|
+|Upon clicking on Edit icon, they can access - Profile Edit Form|**Pass**|
+|Upon clicking on Delete icon, they can delete the profile, upon which they will recieve a feedback message|**Pass**|
+
+#### Profile Edit Form
+
+[Profile Edit Page](docs/features_testing/Profile_edit.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Can be accessed from Create Panel by clicking + Profile| **Pass** |
+|Also upon clicking on owner's own Profile detail page Dropdown menu with Edit icon, they can access - Profile Edit Form| **Pass** |
+|The edit profile page provides a user to edit their own details including adding a their name, age_group, brie_bio, add/update their profile image.| **Pass** |
+
+
+### Profile Password change option
+
+[Profile Password change option](docs/features_testing/Profile_password_change.gif)
+
+|  **Expected Feature** | **Result** |
+|-------------------------|---------------------|
+| Can be accessed from  Dropdown menu with password change on profile page| **Pass** |
+|Upon clicking on the password change option, they can update the password.| **Pass** |
+|They will be redirected to Home page.| **Pass** |
+
+
+### Validation
+
+#### W3C Validator 
+
+The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML of the website. No errors were identified. The error "Percentage ("%") is not followed by two hexadecimal digits" was filtered out.
+
+Result is as shown [here](docs/testing/w3c_validator_html.png)
+
+
+#### W3C Jigsaw Validator 
+
 The official W3C Markup Validator was used to validate the CSS in the project.
 
 [W3C CSS Jigsaw Validatior](https://jigsaw.w3.org/css-validator/validator)
@@ -950,6 +1081,9 @@ The official W3C Markup Validator was used to validate the CSS in the project.
 All CSS code passed through the validator without any issues.
 
 ![CSS Validation](docs/testing/w3c_jigsaw_css_validation.png)
+
+
+
 
 
 ## Issues and Fixes
