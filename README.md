@@ -1250,4 +1250,5 @@ I would like to acknowledge the following people who have helped me along the wa
 **Info on README**
 
 - All the picture files used here are saved in docs folder.
-- All feature files are in Features folder, testing related files are in Validation folder, Agile related files are in Agile folder, wireframes in wireframes folder, features and features testing files are saved in features_testing folder, testing related files in testing folder, responsiveness folder contains screenshots from .
+- All feature files are in Features folder, testing related files are in Validation folder, Agile related files are in Agile folder, wireframes in wireframes folder, features and features testing files are saved in features_testing folder, testing related files in testing folder, responsiveness folder contains screenshots from iPhone and Motorola G6+.
+- Check the blue links for gif files. It gives you idea how to use the website.
